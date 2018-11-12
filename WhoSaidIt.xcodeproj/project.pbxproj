@@ -18,6 +18,7 @@
 		A91BE9F52198FB0C00E4BA67 /* LeaderboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91BE9F42198FB0C00E4BA67 /* LeaderboardVC.swift */; };
 		A91BE9F72198FB4300E4BA67 /* GameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91BE9F62198FB4300E4BA67 /* GameVC.swift */; };
 		A91BE9F92198FE1800E4BA67 /* StartGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91BE9F82198FE1800E4BA67 /* StartGameVC.swift */; };
+		A91BE9FD2199E2E800E4BA67 /* Twitter_Logo_Blue.png in Resources */ = {isa = PBXBuildFile; fileRef = A91BE9FC2199E2E800E4BA67 /* Twitter_Logo_Blue.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		A91BE9F42198FB0C00E4BA67 /* LeaderboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardVC.swift; sourceTree = "<group>"; };
 		A91BE9F62198FB4300E4BA67 /* GameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameVC.swift; sourceTree = "<group>"; };
 		A91BE9F82198FE1800E4BA67 /* StartGameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartGameVC.swift; sourceTree = "<group>"; };
+		A91BE9FC2199E2E800E4BA67 /* Twitter_Logo_Blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twitter_Logo_Blue.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		A91BE9BF2198F70700E4BA67 /* WhoSaidIt */ = {
 			isa = PBXGroup;
 			children = (
+				A91BE9FE2199E53F00E4BA67 /* Images */,
 				A91BE9C02198F70700E4BA67 /* AppDelegate.swift */,
 				A91BE9C22198F70700E4BA67 /* ViewController.swift */,
 				A91BE9C42198F70700E4BA67 /* Main.storyboard */,
@@ -135,6 +138,14 @@
 				A91BE9E22198F70900E4BA67 /* Info.plist */,
 			);
 			path = WhoSaidItUITests;
+			sourceTree = "<group>";
+		};
+		A91BE9FE2199E53F00E4BA67 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				A91BE9FC2199E2E800E4BA67 /* Twitter_Logo_Blue.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A91BE9CB2198F70900E4BA67 /* LaunchScreen.storyboard in Resources */,
+				A91BE9FD2199E2E800E4BA67 /* Twitter_Logo_Blue.png in Resources */,
 				A91BE9C82198F70900E4BA67 /* Assets.xcassets in Resources */,
 				A91BE9C62198F70700E4BA67 /* Main.storyboard in Resources */,
 			);

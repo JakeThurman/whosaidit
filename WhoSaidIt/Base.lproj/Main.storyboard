@@ -65,28 +65,37 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gx1-se-EOW">
                                 <rect key="frame" x="20" y="86" width="335" height="310"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WHO SAID:" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kqD-Zl-It4">
-                                        <rect key="frame" x="25" y="25" width="285" height="33.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="28"/>
-                                        <color key="textColor" red="0.1137254902" green="0.63137254899999995" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THis isjdidj aid jaopd jspod sja dopjs dops djasopd jasop djasd" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2IY-s8-h8F">
                                         <rect key="frame" x="25" y="73.5" width="285" height="40"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Twitter_Logo_Blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="nRq-nk-p5w">
+                                        <rect key="frame" x="22" y="28" width="28" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="28" id="2wN-5e-9fD"/>
+                                            <constraint firstAttribute="height" constant="28" id="YMg-wq-dq8"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WHO SAID:" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kqD-Zl-It4">
+                                        <rect key="frame" x="56" y="25" width="133" height="33.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="28"/>
+                                        <color key="textColor" red="0.1137254902" green="0.63137254899999995" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="nRq-nk-p5w" firstAttribute="leading" secondItem="gx1-se-EOW" secondAttribute="leading" constant="22" id="1v7-c4-Icy"/>
                                     <constraint firstAttribute="height" constant="310" id="4EX-vc-MRB"/>
                                     <constraint firstItem="2IY-s8-h8F" firstAttribute="leading" secondItem="gx1-se-EOW" secondAttribute="leading" constant="25" id="5ob-qx-wG0"/>
                                     <constraint firstItem="kqD-Zl-It4" firstAttribute="top" secondItem="gx1-se-EOW" secondAttribute="top" constant="25" id="IOM-Lj-8YV"/>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="2IY-s8-h8F" secondAttribute="bottom" id="KcU-Jm-2Jr"/>
-                                    <constraint firstAttribute="trailing" secondItem="kqD-Zl-It4" secondAttribute="trailing" constant="25" id="V7G-2W-tki"/>
+                                    <constraint firstItem="nRq-nk-p5w" firstAttribute="top" secondItem="gx1-se-EOW" secondAttribute="top" constant="28" id="V3p-PO-mNQ"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kqD-Zl-It4" secondAttribute="trailing" id="V7G-2W-tki"/>
+                                    <constraint firstItem="kqD-Zl-It4" firstAttribute="leading" secondItem="nRq-nk-p5w" secondAttribute="trailing" constant="6" id="dOP-42-Zyi"/>
                                     <constraint firstItem="2IY-s8-h8F" firstAttribute="top" secondItem="kqD-Zl-It4" secondAttribute="bottom" constant="15" id="duA-wp-eRw"/>
-                                    <constraint firstItem="kqD-Zl-It4" firstAttribute="leading" secondItem="gx1-se-EOW" secondAttribute="leading" constant="25" id="grc-XK-Vme"/>
                                     <constraint firstAttribute="trailing" secondItem="2IY-s8-h8F" secondAttribute="trailing" constant="25" id="hCu-3u-mMf"/>
                                 </constraints>
                             </view>
@@ -228,4 +237,7 @@
             <point key="canvasLocation" x="550" y="1043"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Twitter_Logo_Blue.png" width="400" height="400"/>
+    </resources>
 </document>
