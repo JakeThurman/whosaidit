@@ -150,6 +150,7 @@
                     <connections>
                         <outlet property="scoreLabel" destination="HAL-Rq-z1D" id="yhz-bQ-77X"/>
                         <outlet property="timeRemainingLabel" destination="WXy-xR-C5z" id="SXG-d3-LTP"/>
+                        <outlet property="tweetBodyLabel" destination="2IY-s8-h8F" id="G6O-VF-20j"/>
                         <outlet property="twitterOne" destination="nKs-44-w6W" id="GFz-1X-8Fg"/>
                         <outlet property="twitterTwo" destination="jsu-Dp-aoa" id="eF8-N1-Uee"/>
                     </connections>

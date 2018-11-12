@@ -12,6 +12,7 @@ class GameVC: UIViewController {
     // Controls
     @IBOutlet weak var timeRemainingLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var tweetBodyLabel: UILabel!
     @IBOutlet weak var twitterOne: UIButton!
     @IBOutlet weak var twitterTwo: UIButton!
     
@@ -30,6 +31,9 @@ class GameVC: UIViewController {
         super.viewDidLoad()
         
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.tickClock), userInfo: nil, repeats: true)
+        
+        twitterOne.titleLabel?.text = SettingsRepo.instance.twitterOne
+        twitterTwo.titleLabel?.text = SettingsRepo.instance.twitterTwo
         
         showNextTweet()
     }
@@ -56,8 +60,11 @@ class GameVC: UIViewController {
     }
     
     func showNextTweet() {
-        // Temp
-        isTweetByTwitterOne = !isTweetByTwitterOne
+        let next = TweetRepo.instance.getNext() ?? TweetData(user: "uh oh", text: "words")
+        
+        
+        isTweetByTwitterOne = next.user == SettingsRepo.instance.twitterOne
+        tweetBodyLabel.text = next.text
         
         scoreLabel.text = "Score: \(score)"
     }
