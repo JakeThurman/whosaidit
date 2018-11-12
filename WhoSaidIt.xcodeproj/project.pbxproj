@@ -17,6 +17,7 @@
 		A91BE9F12198FA8900E4BA67 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91BE9F02198FA8900E4BA67 /* SettingsVC.swift */; };
 		A91BE9F52198FB0C00E4BA67 /* LeaderboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91BE9F42198FB0C00E4BA67 /* LeaderboardVC.swift */; };
 		A91BE9F72198FB4300E4BA67 /* GameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91BE9F62198FB4300E4BA67 /* GameVC.swift */; };
+		A91BE9F92198FE1800E4BA67 /* StartGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91BE9F82198FE1800E4BA67 /* StartGameVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		A91BE9F02198FA8900E4BA67 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		A91BE9F42198FB0C00E4BA67 /* LeaderboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardVC.swift; sourceTree = "<group>"; };
 		A91BE9F62198FB4300E4BA67 /* GameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameVC.swift; sourceTree = "<group>"; };
+		A91BE9F82198FE1800E4BA67 /* StartGameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartGameVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				A91BE9C02198F70700E4BA67 /* AppDelegate.swift */,
 				A91BE9C22198F70700E4BA67 /* ViewController.swift */,
 				A91BE9C42198F70700E4BA67 /* Main.storyboard */,
+				A91BE9F82198FE1800E4BA67 /* StartGameVC.swift */,
 				A91BE9F62198FB4300E4BA67 /* GameVC.swift */,
 				A91BE9F02198FA8900E4BA67 /* SettingsVC.swift */,
 				A91BE9F42198FB0C00E4BA67 /* LeaderboardVC.swift */,
@@ -266,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A91BE9F52198FB0C00E4BA67 /* LeaderboardVC.swift in Sources */,
+				A91BE9F92198FE1800E4BA67 /* StartGameVC.swift in Sources */,
 				A91BE9C32198F70700E4BA67 /* ViewController.swift in Sources */,
 				A91BE9C12198F70700E4BA67 /* AppDelegate.swift in Sources */,
 				A91BE9F72198FB4300E4BA67 /* GameVC.swift in Sources */,
