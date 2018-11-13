@@ -18,7 +18,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3IS-js-I4h">
-                                <rect key="frame" x="170.5" y="318.5" width="34" height="30"/>
+                                <rect key="frame" x="128.5" y="299.5" width="118" height="68"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="45"/>
                                 <state key="normal" title="Start"/>
                                 <connections>
                                     <segue destination="bfQ-0X-OIq" kind="show" id="oYT-fg-qyW"/>
@@ -173,6 +174,7 @@
                         <outlet property="tweetBodyLabel" destination="2IY-s8-h8F" id="G6O-VF-20j"/>
                         <outlet property="twitterOne" destination="nKs-44-w6W" id="GFz-1X-8Fg"/>
                         <outlet property="twitterTwo" destination="jsu-Dp-aoa" id="eF8-N1-Uee"/>
+                        <segue destination="7Fe-eo-dX9" kind="show" identifier="endGameSegue" id="yqM-PX-Hj5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AXT-Sx-deK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -183,13 +185,13 @@
         <!--EndGameVC-->
         <scene sceneID="LAy-Am-fjT">
             <objects>
-                <viewController title="EndGameVC" id="7Fe-eo-dX9" customClass="EndGameVC" customModule="WhoSaidIt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="EndGameVC" id="7Fe-eo-dX9" customClass="EndGameVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1fh-em-6qr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TIME'S UP" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NTU-2J-WpT">
-                                <rect key="frame" x="122" y="120" width="131.5" height="33.5"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TIME'S UP!" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NTU-2J-WpT">
+                                <rect key="frame" x="118" y="120" width="139.5" height="33.5"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="28"/>
                                 <color key="textColor" red="0.1137254902" green="0.63137254899999995" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -252,7 +254,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8PA-qL-66n">
                                 <rect key="frame" x="35" y="183.5" width="135" height="27"/>
                                 <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="23"/>
-                                <color key="textColor" red="0.31824778299753032" green="0.7328867660275098" blue="0.8444878658667434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.11372549019607843" green="0.63137254901960782" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="overallRank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ckc-5j-g5u">
@@ -272,12 +274,22 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wHc-sp-haU">
                                 <rect key="frame" x="137" y="528" width="101" height="39"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="22"/>
-                                <state key="normal" title="Play Again"/>
+                                <state key="normal" title="Play Again">
+                                    <color key="titleColor" red="0.1137254902" green="0.63137254899999995" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="s0l-B4-Nmz" kind="unwind" unwindAction="playAgainWithSegue:" id="Cws-KQ-6Lt"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xPh-ra-37w">
                                 <rect key="frame" x="167" y="577" width="41" height="39"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="22"/>
-                                <state key="normal" title="Quit"/>
+                                <state key="normal" title="Quit">
+                                    <color key="titleColor" red="0.1137254902" green="0.63137254899999995" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <segue destination="s0l-B4-Nmz" kind="unwind" unwindAction="unwindToStartGameWithSegue:" id="U4k-z7-4ZC"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -332,10 +344,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QwB-OO-j8v"/>
                     </view>
+                    <connections>
+                        <outlet property="localRankLbl" destination="nRw-bl-OK2" id="Hof-Ug-xx9"/>
+                        <outlet property="numCorrectLbl" destination="unb-7w-ToW" id="GAE-b8-HAJ"/>
+                        <outlet property="numIncorrectLbl" destination="2IE-dg-9np" id="zTC-Gk-hTU"/>
+                        <outlet property="numSkipsLbl" destination="YFJ-3o-8Vf" id="mYK-wj-9cg"/>
+                        <outlet property="overallRankLbl" destination="ckc-5j-g5u" id="qb2-qX-9DE"/>
+                        <outlet property="playAgainButton" destination="wHc-sp-haU" id="Lia-xv-zII"/>
+                        <outlet property="scorePtsLbl" destination="QGE-kU-v7g" id="Ssr-93-uOC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ir-zz-u1I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="s0l-B4-Nmz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1944.8" y="-483.50824587706148"/>
+            <point key="canvasLocation" x="1948" y="-484"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="UYv-H7-Y4J">

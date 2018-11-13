@@ -28,6 +28,20 @@ class GameVC: UIViewController {
     var timer: Timer! = nil
     var isTweetByTwitterOne = true
     
+    var numCorrect = 0
+    var numIncorrect = 0
+    var numSkips = 0
+    var scorePts = 0
+    var localRank = 0
+    var overallRank = 0
+    
+    
+    //Exit segue destinations
+    @IBAction func playAgain(segue: UIStoryboardSegue){
+        //Reset game, i.e., reload the view
+        self.viewDidLoad()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -85,6 +99,7 @@ class GameVC: UIViewController {
     
     func onEndGame() {
         timer.invalidate()
+        performSegue(withIdentifier: "endGameSegue", sender: nil)
         
         // TODO: Goto some end game screen
     }
@@ -103,12 +118,17 @@ class GameVC: UIViewController {
     
     /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        let child = segue.destination as! EndGameVC
+        
+        child.numCorrect = self.numCorrect
+        child.numIncorrect = self.numIncorrect
+        child.numSkips = self.numSkips
+        child.scorePts = self.scorePts
+        child.localRank = self.localRank
+        child.overallRank = self.overallRank
     }
-    */
 
 }
