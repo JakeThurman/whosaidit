@@ -13,10 +13,18 @@ class TweetData {
     let user: String
     
     init(user: String, text: String) {
-        // Store the text with urls removed
-        let containsUrlRegex = "/(https?:////)?[A-Za-z]+.[A-Za-z]+(.[A-Za-z]+)?/[A-Za-z//]*/g";
-        self.text = text.replacingOccurrences(of: containsUrlRegex, with: "")
-        
+        self.text = TweetData.removeUrls(text)
         self.user = user
+    }
+    
+    private static func removeUrls(_ string: String) -> String {
+        let output = NSMutableString(string: string)
+        
+        if let regex = try? NSRegularExpression(pattern: "((http)s?://)?[A-Za-z0-9]*\\.[A-Za-z0-9]*(\\.[A-Za-z0-9]*)*[/A-Za-z0-9]*", options: .caseInsensitive)
+        {
+            regex.replaceMatches(in: output, options: [], range: NSRange(location: 0, length: string.count), withTemplate: "")
+        }
+        
+        return (output as String)
     }
 }

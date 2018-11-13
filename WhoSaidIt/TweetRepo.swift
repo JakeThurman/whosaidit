@@ -10,13 +10,17 @@ import Foundation
 
 class TweetRepo {
     // Singleton
-    static let instance = TweetRepo()
+    static let instance = TweetRepo(loader: TweetLoader())
     
-    // Map from twitter handle to
+    let loader: TweetLoader
     var tweets: [TweetData]
     
-    private init() {
-        tweets = [TweetData]()
+    private init(loader: TweetLoader) {
+        self.loader = loader
+        self.tweets = [TweetData]()
+        
+        // Load some tweets!
+        onTweetShortage()
         
         // TODO: Load temp sample data
         let user1 = SettingsRepo.instance.twitterOne
@@ -38,7 +42,25 @@ class TweetRepo {
         tweets = tweets.shuffled()
     }
     
+    func onTweetShortage() {
+        loader.loadNewTweets(
+            username: SettingsRepo.instance.twitterOne,
+            maxId: nil,
+            onError: { msg in print("error!", msg) },
+            onSuccess: { data in print(data) })
+        
+        loader.loadNewTweets(
+            username: SettingsRepo.instance.twitterTwo,
+            maxId: nil,
+            onError: { msg in print("error!", msg) },
+            onSuccess: { data in print(data) })
+    }
+    
     func getNext() -> TweetData? {
+        if tweets.count < 15 {
+            onTweetShortage()
+        }
+        
         return tweets.popLast()
     }
 }

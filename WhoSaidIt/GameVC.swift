@@ -10,6 +10,7 @@ import UIKit
 
 class GameVC: UIViewController {
     // Controls
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var timeRemainingLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var tweetBodyLabel: UILabel!
@@ -39,40 +40,44 @@ class GameVC: UIViewController {
     }
     
     @IBAction func chooseTwitterOne(_ sender: Any) {
-        handleIncrementingScore(wasCorrect: isTweetByTwitterOne)
+        handleScoreChange(wasCorrect: isTweetByTwitterOne)
         
         showNextTweet()
     }
     
     @IBAction func chooseTwitterTwo(_ sender: Any) {
-        handleIncrementingScore(wasCorrect: !isTweetByTwitterOne)
+        handleScoreChange(wasCorrect: !isTweetByTwitterOne)
         
         showNextTweet()
     }
     
-    func handleIncrementingScore(wasCorrect: Bool) {
-        if wasCorrect {
-            score += 1
-        }
+    func handleScoreChange(wasCorrect: Bool) {
+        score += wasCorrect ? 1 : -1
         
         scoreLabel.backgroundColor = wasCorrect ? UIColor.green : UIColor.red
         scoreLabel.textColor = wasCorrect ? UIColor.black : UIColor.white
     }
     
     func showNextTweet() {
-        let next = TweetRepo.instance.getNext() ?? TweetData(user: "uh oh", text: "words")
+        if let next = TweetRepo.instance.getNext() {
         
-        
-        isTweetByTwitterOne = next.user == SettingsRepo.instance.twitterOne
-        tweetBodyLabel.text = next.text
-        
-        scoreLabel.text = "Score: \(score)"
+            isTweetByTwitterOne = next.user == SettingsRepo.instance.twitterOne
+            tweetBodyLabel.text = next.text
+            
+            scoreLabel.text = "Score: \(score)"
+        }
+        else {
+            spinner.startAnimating()
+        }
     }
     
     @objc func tickClock() {
         secondsRemaining -= 1
         timeRemainingLabel.text = "\(secondsRemaining) seconds"
     
+    timeRemainingLabel.backgroundColor = UIColor.white 
+        
+        
         if (secondsRemaining <= 0) {
             onEndGame();
         }
@@ -84,7 +89,18 @@ class GameVC: UIViewController {
         // TODO: Goto some end game screen
     }
     
-
+    @IBAction func onSkipTweet(_ sender: Any) {
+        // Cut two seconds, one manually and one
+        //  as a fake clock tick, which also updates
+        //  the label for us
+        secondsRemaining -= 1
+        tickClock()
+        
+        timeRemainingLabel.backgroundColor = UIColor.red
+        
+        showNextTweet()
+    }
+    
     /*
     // MARK: - Navigation
 

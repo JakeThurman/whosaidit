@@ -21,6 +21,7 @@
 		A91BEA002199F3F700E4BA67 /* TweetRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91BE9FF2199F3F700E4BA67 /* TweetRepo.swift */; };
 		A91BEA032199F4D400E4BA67 /* TweetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91BEA022199F4D400E4BA67 /* TweetData.swift */; };
 		A91BEA05219A06F400E4BA67 /* SettingsRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91BEA04219A06F400E4BA67 /* SettingsRepo.swift */; };
+		A91BEA07219A91F400E4BA67 /* TweetLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91BEA06219A91F400E4BA67 /* TweetLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		A91BE9FF2199F3F700E4BA67 /* TweetRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetRepo.swift; sourceTree = "<group>"; };
 		A91BEA022199F4D400E4BA67 /* TweetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetData.swift; sourceTree = "<group>"; };
 		A91BEA04219A06F400E4BA67 /* SettingsRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRepo.swift; sourceTree = "<group>"; };
+		A91BEA06219A91F400E4BA67 /* TweetLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				A91BE9F42198FB0C00E4BA67 /* LeaderboardVC.swift */,
 				A91BEA022199F4D400E4BA67 /* TweetData.swift */,
 				A91BE9FF2199F3F700E4BA67 /* TweetRepo.swift */,
+				A91BEA06219A91F400E4BA67 /* TweetLoader.swift */,
 				A91BEA04219A06F400E4BA67 /* SettingsRepo.swift */,
 				A91BE9C72198F70900E4BA67 /* Assets.xcassets */,
 				A91BE9C92198F70900E4BA67 /* LaunchScreen.storyboard */,
@@ -284,6 +287,7 @@
 				A91BEA002199F3F700E4BA67 /* TweetRepo.swift in Sources */,
 				A91BEA05219A06F400E4BA67 /* SettingsRepo.swift in Sources */,
 				A91BEA032199F4D400E4BA67 /* TweetData.swift in Sources */,
+				A91BEA07219A91F400E4BA67 /* TweetLoader.swift in Sources */,
 				A91BE9F72198FB4300E4BA67 /* GameVC.swift in Sources */,
 				A91BE9F12198FA8900E4BA67 /* SettingsVC.swift in Sources */,
 			);
