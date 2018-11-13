@@ -7,16 +7,22 @@
 //
 
 import UIKit
+import TwitterKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    let p = "XRwf#8Vesj9#P7FXRLK#j12QlvvR"
+    let s = "0RyY3ZA#2JR9GHO#eggtjtZuoiu#STtTP7rE76ZMJq#qGZXQ#xILCS##"
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        TWTRTwitter.sharedInstance().start(withConsumerKey:p.replacingOccurrences(of: "#", with: ""), consumerSecret:s.replacingOccurrences(of: "#", with: ""))
         return true
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        return TWTRTwitter.sharedInstance().application(app, open: url, options: options)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
