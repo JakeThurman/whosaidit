@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84E78C52219B533D00D7BF31 /* EndGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E78C51219B533D00D7BF31 /* EndGameVC.swift */; };
 		A91BE9C12198F70700E4BA67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91BE9C02198F70700E4BA67 /* AppDelegate.swift */; };
 		A91BE9C62198F70700E4BA67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91BE9C42198F70700E4BA67 /* Main.storyboard */; };
 		A91BE9C82198F70900E4BA67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A91BE9C72198F70900E4BA67 /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		84E78C51219B533D00D7BF31 /* EndGameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameVC.swift; sourceTree = "<group>"; };
 		A91BE9BD2198F70700E4BA67 /* WhoSaidIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhoSaidIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A91BE9C02198F70700E4BA67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A91BE9C52198F70700E4BA67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				A91BE9C92198F70900E4BA67 /* LaunchScreen.storyboard */,
 				A91BE9CC2198F70900E4BA67 /* Info.plist */,
 				A91BE9FC2199E2E800E4BA67 /* Twitter_Logo_Blue.png */,
+				84E78C51219B533D00D7BF31 /* EndGameVC.swift */,
 			);
 			path = WhoSaidIt;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 			files = (
 				A91BE9F52198FB0C00E4BA67 /* LeaderboardVC.swift in Sources */,
 				A91BE9F92198FE1800E4BA67 /* StartGameVC.swift in Sources */,
+				84E78C52219B533D00D7BF31 /* EndGameVC.swift in Sources */,
 				A91BE9C12198F70700E4BA67 /* AppDelegate.swift in Sources */,
 				A91BEA002199F3F700E4BA67 /* TweetRepo.swift in Sources */,
 				A91BEA05219A06F400E4BA67 /* SettingsRepo.swift in Sources */,
