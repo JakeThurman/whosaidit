@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OVf-ko-BIM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OVf-ko-BIM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -270,6 +270,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="TrebuchetMS-Italic" family="Trebuchet MS" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="touchNameField:" destination="7Fe-eo-dX9" eventType="touchUpOutside" id="fZo-GV-6UC"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wHc-sp-haU">
                                 <rect key="frame" x="137" y="528" width="101" height="39"/>
@@ -278,6 +281,7 @@
                                     <color key="titleColor" red="0.1137254902" green="0.63137254899999995" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="leavingView:" destination="7Fe-eo-dX9" eventType="touchUpInside" id="iQN-fp-Amk"/>
                                     <segue destination="s0l-B4-Nmz" kind="unwind" unwindAction="restartGameWithSegue:" id="LQV-8m-QaK"/>
                                 </connections>
                             </button>
@@ -288,6 +292,7 @@
                                     <color key="titleColor" red="0.1137254902" green="0.63137254899999995" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
+                                    <action selector="leavingView:" destination="7Fe-eo-dX9" eventType="touchUpInside" id="5Oj-Wk-8Fl"/>
                                     <segue destination="s0l-B4-Nmz" kind="unwind" unwindAction="unwindToStartGameWithSegue:" id="U4k-z7-4ZC"/>
                                 </connections>
                             </button>
@@ -346,8 +351,7 @@
                     </view>
                     <connections>
                         <outlet property="localRankLbl" destination="nRw-bl-OK2" id="Hof-Ug-xx9"/>
-                        <outlet property="nameField" destination="uLc-X0-dZo" id="INr-Lk-6mb"/>
-                        <outlet property="nameTextField" destination="uLc-X0-dZo" id="bH5-cW-U1w"/>
+                        <outlet property="nameField" destination="uLc-X0-dZo" id="bH5-cW-U1w"/>
                         <outlet property="numCorrectLbl" destination="unb-7w-ToW" id="GAE-b8-HAJ"/>
                         <outlet property="numIncorrectLbl" destination="2IE-dg-9np" id="zTC-Gk-hTU"/>
                         <outlet property="numSkipsLbl" destination="YFJ-3o-8Vf" id="mYK-wj-9cg"/>

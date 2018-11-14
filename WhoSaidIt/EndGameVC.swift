@@ -28,6 +28,24 @@ class EndGameVC: UIViewController {
     @IBOutlet weak var overallRankLbl: UILabel!
     @IBOutlet weak var nameField: UITextField!
     
+    
+    @IBAction func leavingView(_ sender: Any) {
+        addToLeaderboard()
+    }
+    
+    @IBAction func touchNameField(_ sender: Any) {
+       //Add gesture to dismiss keyboard when screen is tapped
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
+        nameField.becomeFirstResponder()
+    }
+    
+    //Dismiss keyboard when return button is pressed
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        nameField.resignFirstResponder()
+        
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,7 +63,12 @@ class EndGameVC: UIViewController {
     }
     
     func addToLeaderboard(){
-        leaderboard.addRanking(score: scorePts, name: name, date: Date())
+        if name.isEmpty {
+            leaderboard.addRanking(score: scorePts, name: "User", date: Date())
+        }
+        else{
+            leaderboard.addRanking(score: scorePts, name: name, date: Date())
+        }
     }
     
     
