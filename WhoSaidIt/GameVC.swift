@@ -99,8 +99,6 @@ class GameVC: UIViewController {
     func onEndGame() {
         timer.invalidate()
         performSegue(withIdentifier: "endGameSegue", sender: nil)
-        
-        // TODO: Goto some end game screen
     }
     
     @IBAction func onSkipTweet(_ sender: Any) {

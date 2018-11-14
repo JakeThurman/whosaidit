@@ -10,12 +10,12 @@ import UIKit
 
 class EndGameVC: UIViewController {
     
-    var numCorrect = 0
-    var numIncorrect = 0
-    var numSkips = 0
-    var scorePts = 0
-    var localRank = 0
-    var overallRank = 0
+    @objc var numCorrect = 0
+    @objc var numIncorrect = 0
+    @objc var numSkips = 0
+    @objc var scorePts = 0
+    @objc var localRank = 0
+    @objc var overallRank = 0
     
     @IBOutlet weak var numCorrectLbl: UILabel!
     @IBOutlet weak var numIncorrectLbl: UILabel!
@@ -26,7 +26,7 @@ class EndGameVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         numCorrectLbl.text = String(numCorrect)
         numIncorrectLbl.text = String(numIncorrect)
         numSkipsLbl.text = String(numSkips)
@@ -34,5 +34,5 @@ class EndGameVC: UIViewController {
         localRankLbl.text = String(localRank)
         overallRankLbl.text = String(overallRank)
     }
-
+    
 }

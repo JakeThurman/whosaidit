@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OVf-ko-BIM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OVf-ko-BIM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -174,7 +174,7 @@
                         <outlet property="tweetBodyLabel" destination="2IY-s8-h8F" id="G6O-VF-20j"/>
                         <outlet property="twitterOne" destination="nKs-44-w6W" id="GFz-1X-8Fg"/>
                         <outlet property="twitterTwo" destination="jsu-Dp-aoa" id="eF8-N1-Uee"/>
-                        <segue destination="7Fe-eo-dX9" kind="show" identifier="endGameSegue" id="yqM-PX-Hj5"/>
+                        <segue destination="7Fe-eo-dX9" kind="show" identifier="endGameSegue" id="3bS-X0-KD9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AXT-Sx-deK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -182,10 +182,10 @@
             </objects>
             <point key="canvasLocation" x="1272.8" y="-484.40779610194909"/>
         </scene>
-        <!--EndGameVC-->
+        <!--End Game VC-->
         <scene sceneID="LAy-Am-fjT">
             <objects>
-                <viewController title="EndGameVC" id="7Fe-eo-dX9" customClass="EndGameVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="endGameVC" title="End Game VC" id="7Fe-eo-dX9" customClass="EndGameVC" customModule="WhoSaidIt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1fh-em-6qr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -278,7 +278,7 @@
                                     <color key="titleColor" red="0.1137254902" green="0.63137254899999995" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="s0l-B4-Nmz" kind="unwind" unwindAction="playAgainWithSegue:" id="Cws-KQ-6Lt"/>
+                                    <segue destination="s0l-B4-Nmz" kind="unwind" unwindAction="playAgainWithSegue:" id="gls-iq-gf1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xPh-ra-37w">
@@ -350,7 +350,6 @@
                         <outlet property="numIncorrectLbl" destination="2IE-dg-9np" id="zTC-Gk-hTU"/>
                         <outlet property="numSkipsLbl" destination="YFJ-3o-8Vf" id="mYK-wj-9cg"/>
                         <outlet property="overallRankLbl" destination="ckc-5j-g5u" id="qb2-qX-9DE"/>
-                        <outlet property="playAgainButton" destination="wHc-sp-haU" id="Lia-xv-zII"/>
                         <outlet property="scorePtsLbl" destination="QGE-kU-v7g" id="Ssr-93-uOC"/>
                     </connections>
                 </viewController>
