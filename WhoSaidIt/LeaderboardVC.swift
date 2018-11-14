@@ -13,6 +13,16 @@ class LeaderboardVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        repo.addObserver(self, forKeyPath: "data", options: .new, context: nil)
+    }
+    
+    deinit {
+        repo.removeObserver(self, forKeyPath: "data")
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
