@@ -16,9 +16,11 @@ class StartGameVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    
-    
     @IBAction func unwindToStartGame(segue: UIStoryboardSegue) {
+    }
+    
+    @IBAction func restartGame(segue: UIStoryboardSegue){
+        performSegue(withIdentifier: "gameSegue", sender: nil)
     }
     
     /*

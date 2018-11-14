@@ -22,7 +22,7 @@
                                 <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="45"/>
                                 <state key="normal" title="Start"/>
                                 <connections>
-                                    <segue destination="bfQ-0X-OIq" kind="show" id="oYT-fg-qyW"/>
+                                    <segue destination="bfQ-0X-OIq" kind="show" identifier="gameSegue" id="oYT-fg-qyW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -278,7 +278,7 @@
                                     <color key="titleColor" red="0.1137254902" green="0.63137254899999995" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="s0l-B4-Nmz" kind="unwind" unwindAction="playAgainWithSegue:" id="gls-iq-gf1"/>
+                                    <segue destination="s0l-B4-Nmz" kind="unwind" unwindAction="restartGameWithSegue:" id="LQV-8m-QaK"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xPh-ra-37w">

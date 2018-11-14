@@ -24,7 +24,7 @@ class GameVC: UIViewController {
     
     // Local state
     var secondsRemaining = 60
-    var score = 0
+    var secWhenDisplayed = 0
     var timer: Timer! = nil
     var isTweetByTwitterOne = true
     
@@ -34,13 +34,6 @@ class GameVC: UIViewController {
     var scorePts = 0
     var localRank = 0
     var overallRank = 0
-    
-    
-    //Exit segue destinations
-    @IBAction func playAgain(segue: UIStoryboardSegue){
-        //Reset game, i.e., reload the view
-        self.viewDidLoad()
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,12 +59,20 @@ class GameVC: UIViewController {
     }
     
     func handleScoreChange(wasCorrect: Bool) {
-        score += wasCorrect ? 1 : -1
+        let incOrDec = wasCorrect ? 1 : -1
+        
+        //The longer you take, the more points you lose, the less points you gain
+        let scoreChange = (incOrDec * 100) - (5 * (secWhenDisplayed-secondsRemaining))
+        //Always gain at least 10 points on correct answer
+        scorePts += (wasCorrect && scoreChange < 10) ? 10 : scoreChange
+        
+        numCorrect += wasCorrect ? 1 : 0
+        numIncorrect += wasCorrect ? 0 : 1
         
         scoreLabel.backgroundColor = wasCorrect ? UIColor.green : UIColor.red
         scoreLabel.textColor = wasCorrect ? UIColor.black : UIColor.white
         
-        self.scoreLabel.text = "Score: \(self.score)"
+        self.scoreLabel.text = "Score: \(self.scorePts)"
     }
     
     func showNextTweet() {
@@ -82,6 +83,7 @@ class GameVC: UIViewController {
                 
                 self.isTweetByTwitterOne = next.user == SettingsRepo.instance.twitterOne
                 self.tweetBodyLabel.text = next.text
+                self.secWhenDisplayed = self.secondsRemaining
             })
     }
     
@@ -89,7 +91,8 @@ class GameVC: UIViewController {
         secondsRemaining -= 1
         timeRemainingLabel.text = "\(secondsRemaining) seconds"
     
-        timeRemainingLabel.backgroundColor = UIColor.white
+        //timeRemainingLabel.backgroundColor = UIColor.white
+        timeRemainingLabel.textColor = UIColor.black
         
         if (secondsRemaining <= 0) {
             onEndGame();
@@ -108,7 +111,10 @@ class GameVC: UIViewController {
         secondsRemaining -= 1
         tickClock()
         
-        timeRemainingLabel.backgroundColor = UIColor.red
+        timeRemainingLabel.textColor = UIColor.red
+        //timeRemainingLabel.backgroundColor = UIColor.red
+        
+        numSkips += 1
         
         showNextTweet()
     }
