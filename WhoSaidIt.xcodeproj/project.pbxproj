@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		8460D8D0219B822E005B8622 /* EndGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8460D8CF219B822E005B8622 /* EndGameVC.swift */; };
 		84E78C52219B533D00D7BF31 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		A5783281219BA43E0096CCE8 /* LeaderboardRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5783280219BA43E0096CCE8 /* LeaderboardRepo.swift */; };
+		A5783283219BABBA0096CCE8 /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5783282219BABBA0096CCE8 /* Ranking.swift */; };
 		A91BE9C12198F70700E4BA67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91BE9C02198F70700E4BA67 /* AppDelegate.swift */; };
 		A91BE9C62198F70700E4BA67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91BE9C42198F70700E4BA67 /* Main.storyboard */; };
 		A91BE9C82198F70900E4BA67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A91BE9C72198F70900E4BA67 /* Assets.xcassets */; };
@@ -48,6 +50,8 @@
 		6029F9BE04C2AB5939F5A99F /* Pods-WhoSaidItTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoSaidItTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhoSaidItTests/Pods-WhoSaidItTests.debug.xcconfig"; sourceTree = "<group>"; };
 		67B88E5C5794156E99A0E889 /* Pods-WhoSaidItTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoSaidItTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhoSaidItTests/Pods-WhoSaidItTests.release.xcconfig"; sourceTree = "<group>"; };
 		8460D8CF219B822E005B8622 /* EndGameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndGameVC.swift; sourceTree = "<group>"; };
+		A5783280219BA43E0096CCE8 /* LeaderboardRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardRepo.swift; sourceTree = "<group>"; };
+		A5783282219BABBA0096CCE8 /* Ranking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
 		A91BE9BD2198F70700E4BA67 /* WhoSaidIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhoSaidIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A91BE9C02198F70700E4BA67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A91BE9C52198F70700E4BA67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -161,6 +165,8 @@
 				A91BEA10219B5E4000E4BA67 /* Twitter-Bridging-Header.h */,
 				A91BE9CC2198F70900E4BA67 /* Info.plist */,
 				A91BE9FC2199E2E800E4BA67 /* Twitter_Logo_Blue.png */,
+				A5783280219BA43E0096CCE8 /* LeaderboardRepo.swift */,
+				A5783282219BABBA0096CCE8 /* Ranking.swift */,
 			);
 			path = WhoSaidIt;
 			sourceTree = "<group>";
@@ -438,7 +444,9 @@
 				A91BE9F52198FB0C00E4BA67 /* LeaderboardVC.swift in Sources */,
 				8460D8D0219B822E005B8622 /* EndGameVC.swift in Sources */,
 				A91BE9F92198FE1800E4BA67 /* StartGameVC.swift in Sources */,
+				A5783281219BA43E0096CCE8 /* LeaderboardRepo.swift in Sources */,
 				84E78C52219B533D00D7BF31 /* (null) in Sources */,
+				A5783283219BABBA0096CCE8 /* Ranking.swift in Sources */,
 				A91BE9C12198F70700E4BA67 /* AppDelegate.swift in Sources */,
 				A91BEA002199F3F700E4BA67 /* TweetRepo.swift in Sources */,
 				A91BEA05219A06F400E4BA67 /* SettingsRepo.swift in Sources */,
