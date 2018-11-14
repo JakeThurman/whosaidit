@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EndGameVC: UIViewController {
+class EndGameVC: UIViewController, UITextFieldDelegate {
     
     let leaderboard = LeaderboardRepo.instance
     
@@ -28,9 +28,32 @@ class EndGameVC: UIViewController {
     @IBOutlet weak var overallRankLbl: UILabel!
     @IBOutlet weak var nameField: UITextField!
     
+    
+    @IBAction func leavingView(_ sender: Any) {
+        addToLeaderboard()
+    }
+    
+    @IBAction func touchNameField(_ sender: Any) {
+        nameField.becomeFirstResponder()
+    }
+    
+    //Dismiss keyboard when return button is pressed
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        nameField.resignFirstResponder()
+        
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Manually declare the delegate of the nameField - needed for textFieldShouldReturn
+        self.nameField.delegate = self
+        
+        //Add gesture to dismiss keyboard when screen is tapped
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(self.view.endEditing(_:))))
+        
+        //Set name to the most recent name used if it exists
         if let prevName = (leaderboard.data.sorted(by: {$0.date < $1.date}).first?.name){
             name = prevName
         }
@@ -45,7 +68,12 @@ class EndGameVC: UIViewController {
     }
     
     func addToLeaderboard(){
-        leaderboard.addRanking(score: scorePts, name: name, date: Date())
+        if name.isEmpty {
+            leaderboard.addRanking(score: scorePts, name: "User", date: Date())
+        }
+        else{
+            leaderboard.addRanking(score: scorePts, name: name, date: Date())
+        }
     }
     
     

@@ -270,6 +270,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="TrebuchetMS-Italic" family="Trebuchet MS" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="touchNameField:" destination="7Fe-eo-dX9" eventType="touchUpInside" id="GFk-aF-ORN"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wHc-sp-haU">
                                 <rect key="frame" x="137" y="528" width="101" height="39"/>
@@ -278,6 +281,7 @@
                                     <color key="titleColor" red="0.1137254902" green="0.63137254899999995" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="leavingView:" destination="7Fe-eo-dX9" eventType="touchUpInside" id="iQN-fp-Amk"/>
                                     <segue destination="s0l-B4-Nmz" kind="unwind" unwindAction="restartGameWithSegue:" id="LQV-8m-QaK"/>
                                 </connections>
                             </button>
@@ -288,6 +292,7 @@
                                     <color key="titleColor" red="0.1137254902" green="0.63137254899999995" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
+                                    <action selector="leavingView:" destination="7Fe-eo-dX9" eventType="touchUpInside" id="5Oj-Wk-8Fl"/>
                                     <segue destination="s0l-B4-Nmz" kind="unwind" unwindAction="unwindToStartGameWithSegue:" id="U4k-z7-4ZC"/>
                                 </connections>
                             </button>
@@ -346,7 +351,7 @@
                     </view>
                     <connections>
                         <outlet property="localRankLbl" destination="nRw-bl-OK2" id="Hof-Ug-xx9"/>
-                        <outlet property="nameField" destination="uLc-X0-dZo" id="INr-Lk-6mb"/>
+                        <outlet property="nameField" destination="uLc-X0-dZo" id="ilZ-Pn-9no"/>
                         <outlet property="numCorrectLbl" destination="unb-7w-ToW" id="GAE-b8-HAJ"/>
                         <outlet property="numIncorrectLbl" destination="2IE-dg-9np" id="zTC-Gk-hTU"/>
                         <outlet property="numSkipsLbl" destination="YFJ-3o-8Vf" id="mYK-wj-9cg"/>
