@@ -70,6 +70,11 @@ class LeaderboardRepo: NSObject {
         }
     }
     
+    func addRanking(score: Int, name: String, date: Date){
+        let r = Ranking(score: score, name: name, date: date)
+        data.append(r)
+    }
+    
     // Remove self as observer when closing
     deinit {
         removeObserver(self, forKeyPath: "data")
