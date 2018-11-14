@@ -13,18 +13,26 @@ class Ranking: NSObject {
     
     @objc var score: Int
     @objc var name: String
-    @objc var date: Date
+    @objc var date: String
     
     override init() {
         score = 0
         name = ""
-        date = Date()
+        date = Date().description
         super.init()
     }
     
-    init(score: Int, name: String, date: Date) {
+    init(score: Int, name: String, date: String) {
         self.score = score
         self.name = name
         self.date = date
+    }
+    
+    func toDictionary() -> [String: Any] {
+        return [
+            "name": name,
+            "score": score,
+            "date": date
+        ]
     }
 }

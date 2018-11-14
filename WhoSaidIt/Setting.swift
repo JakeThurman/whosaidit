@@ -27,4 +27,12 @@ class Setting: NSObject {
         self.value = value
         self.order = 0
     }
+    
+    func toDictionary() -> [String: Any] {
+        return [
+            "name": name,
+            "value": value,
+            "order": order
+        ]
+    }
 }

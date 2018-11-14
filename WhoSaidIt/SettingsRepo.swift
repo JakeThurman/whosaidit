@@ -74,9 +74,16 @@ class SettingsRepo: NSObject {
     
     // Write JSON to file when settings change
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        
+        // Create array of dictionaries from the array of rankings so it can be written as JSON
+        var jsonData = [[String: Any]]()
+        for setting in data {
+            jsonData.append(setting.toDictionary())
+        }
+        
         if let file = fileUrl {
             do {
-                let contents = try JSONSerialization.data(withJSONObject: data, options: .prettyPrinted)
+                let contents = try JSONSerialization.data(withJSONObject: jsonData, options: .prettyPrinted)
                 try contents.write(to: file)
             } catch {
                 print("Failed to write")

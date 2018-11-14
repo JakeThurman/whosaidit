@@ -13,7 +13,7 @@ class LeaderboardVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         repo.addObserver(self, forKeyPath: "data", options: .new, context: nil)
     }
     

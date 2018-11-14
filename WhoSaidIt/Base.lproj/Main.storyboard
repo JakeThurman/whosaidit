@@ -347,7 +347,6 @@
                     <connections>
                         <outlet property="localRankLbl" destination="nRw-bl-OK2" id="Hof-Ug-xx9"/>
                         <outlet property="nameField" destination="uLc-X0-dZo" id="INr-Lk-6mb"/>
-                        <outlet property="nameTextField" destination="uLc-X0-dZo" id="bH5-cW-U1w"/>
                         <outlet property="numCorrectLbl" destination="unb-7w-ToW" id="GAE-b8-HAJ"/>
                         <outlet property="numIncorrectLbl" destination="2IE-dg-9np" id="zTC-Gk-hTU"/>
                         <outlet property="numSkipsLbl" destination="YFJ-3o-8Vf" id="mYK-wj-9cg"/>
@@ -424,7 +423,7 @@
             </objects>
             <point key="canvasLocation" x="550" y="206"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Settings-->
         <scene sceneID="aAg-XP-ohn">
             <objects>
                 <tableViewController id="LRl-7Q-FhR" customClass="SettingsVC" customModule="WhoSaidIt" customModuleProvider="target" sceneMemberID="viewController">
@@ -463,7 +462,7 @@
                             <outlet property="delegate" destination="LRl-7Q-FhR" id="qeA-BO-PaW"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="zdc-DD-hh1"/>
+                    <navigationItem key="navigationItem" title="Settings" id="zdc-DD-hh1"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yGh-kh-gkS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
