@@ -21,7 +21,6 @@ class LeaderboardRepo: NSObject {
         // Save file url
         let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         fileUrl = URL(fileURLWithPath: path).appendingPathComponent("leaderboard.json")
-        print(fileUrl.path)
 
         super.init()
         
@@ -59,8 +58,6 @@ class LeaderboardRepo: NSObject {
         else {
             print("File does not exist")
         }
-        
-        
     }
     
     // Write JSON to file when rankings change

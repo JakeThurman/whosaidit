@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Twitter 1",
+        "value": "@cnn",
+        "order": 0
+    },
+    {
+        "name": "Twitter 2",
+        "value": "@theonion",
+        "order": 1
+    }
+]
