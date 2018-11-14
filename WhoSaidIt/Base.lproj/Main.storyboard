@@ -346,6 +346,8 @@
                     </view>
                     <connections>
                         <outlet property="localRankLbl" destination="nRw-bl-OK2" id="Hof-Ug-xx9"/>
+                        <outlet property="nameField" destination="uLc-X0-dZo" id="INr-Lk-6mb"/>
+                        <outlet property="nameTextField" destination="uLc-X0-dZo" id="bH5-cW-U1w"/>
                         <outlet property="numCorrectLbl" destination="unb-7w-ToW" id="GAE-b8-HAJ"/>
                         <outlet property="numIncorrectLbl" destination="2IE-dg-9np" id="zTC-Gk-hTU"/>
                         <outlet property="numSkipsLbl" destination="YFJ-3o-8Vf" id="mYK-wj-9cg"/>

@@ -13,16 +13,16 @@ class Ranking: NSObject {
     
     @objc var score: Int
     @objc var name: String
-    @objc var date: String
+    @objc var date: Date
     
     override init() {
         score = 0
         name = ""
-        date = ""
+        date = Date()
         super.init()
     }
     
-    init(score: Int, name: String, date: String) {
+    init(score: Int, name: String, date: Date) {
         self.score = score
         self.name = name
         self.date = date
