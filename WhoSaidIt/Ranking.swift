@@ -9,20 +9,23 @@
 import Foundation
 
 class Ranking: NSObject {
-    static let fields = ["score", "name", "date"]
+    static let fields = ["localRank", "score", "name", "date"]
     
+    @objc var localRank: Int
     @objc var score: Int
     @objc var name: String
     @objc var date: String
-    
+
     override init() {
+        localRank = 0
         score = 0
         name = ""
         date = Date().description
         super.init()
     }
     
-    init(score: Int, name: String, date: String) {
+    init(localRank: Int, score: Int, name: String, date: String) {
+        self.localRank = localRank
         self.score = score
         self.name = name
         self.date = date
@@ -32,6 +35,7 @@ class Ranking: NSObject {
         return [
             "name": name,
             "score": score,
+            "localRank": localRank,
             "date": date
         ]
     }

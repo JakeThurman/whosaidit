@@ -40,7 +40,7 @@ class EndGameVC: UIViewController, UITextFieldDelegate {
     //Dismiss keyboard when return button is pressed
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         nameField.resignFirstResponder()
-        
+        name = nameField.text!
         return true
     }
     
@@ -51,12 +51,17 @@ class EndGameVC: UIViewController, UITextFieldDelegate {
         self.nameField.delegate = self
         
         //Add gesture to dismiss keyboard when screen is tapped
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(self.view.endEditing(_:))))
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(textFieldShouldReturn(_:))))
         
         //Set name to the most recent name used if it exists
-        if let prevName = (leaderboard.data.sorted(by: {$0.date < $1.date}).first?.name){
-            name = prevName
+        if let prevName = (leaderboard.data.sorted(by: {$0.date > $1.date}).first?.name){
+            if prevName != "User"{
+                name = prevName
+            }
         }
+        
+        //Calculate the rank of the score
+        localRank = (leaderboard.data.filter({$0.score > scorePts}).count) + 1
         
         nameField.text = name
         numCorrectLbl.text = String(numCorrect)
@@ -64,15 +69,15 @@ class EndGameVC: UIViewController, UITextFieldDelegate {
         numSkipsLbl.text = String(numSkips)
         scorePtsLbl.text = String(scorePts)
         localRankLbl.text = String(localRank)
-        overallRankLbl.text = String(overallRank)
+        overallRankLbl.text = "?" //String(overallRank)
     }
     
     func addToLeaderboard(){
         if name.isEmpty {
-            leaderboard.addRanking(score: scorePts, name: "User", date: Date())
+            leaderboard.addRanking(localRank: localRank, score: scorePts, name: "User", date: Date())
         }
         else{
-            leaderboard.addRanking(score: scorePts, name: name, date: Date())
+            leaderboard.addRanking(localRank: localRank, score: scorePts, name: name, date: Date())
         }
     }
     

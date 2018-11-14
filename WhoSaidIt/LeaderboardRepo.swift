@@ -62,7 +62,6 @@ class LeaderboardRepo: NSObject {
     
     // Write JSON to file when rankings change
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        
         // Create array of dictionaries from the array of rankings so it can be written as JSON
         var jsonData = [[String: Any]]()
         for ranking in data {
@@ -77,9 +76,9 @@ class LeaderboardRepo: NSObject {
         }
     }
     
-    func addRanking(score: Int, name: String, date: Date){
-        let r = Ranking(score: score, name: name, date: date.description)
-        data.append(r)
+    func addRanking(localRank: Int, score: Int, name: String, date: Date){
+        let r = Ranking(localRank: localRank, score: score, name: name, date: date.description)
+        data.insert(r, at: localRank - 1 )
     }
     
     // Remove self as observer when closing

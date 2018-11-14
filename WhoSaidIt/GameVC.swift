@@ -23,7 +23,7 @@ class GameVC: UIViewController {
      */
     
     // Local state
-    var secondsRemaining = 60
+    var secondsRemaining = 20
     var secWhenDisplayed = 0
     var timer: Timer! = nil
     var isTweetByTwitterOne = true
@@ -89,9 +89,9 @@ class GameVC: UIViewController {
     
     @objc func tickClock() {
         secondsRemaining -= 1
+        secondsRemaining = (secondsRemaining <= 0) ? 0 : secondsRemaining
         timeRemainingLabel.text = "\(secondsRemaining) seconds"
     
-        //timeRemainingLabel.backgroundColor = UIColor.white
         timeRemainingLabel.textColor = UIColor.black
         
         if (secondsRemaining <= 0) {
@@ -112,7 +112,6 @@ class GameVC: UIViewController {
         tickClock()
         
         timeRemainingLabel.textColor = UIColor.red
-        //timeRemainingLabel.backgroundColor = UIColor.red
         
         numSkips += 1
         
