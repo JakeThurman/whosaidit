@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EndGameVC: UIViewController {
+class EndGameVC: UIViewController, UITextFieldDelegate {
     
     let leaderboard = LeaderboardRepo.instance
     
@@ -34,13 +34,11 @@ class EndGameVC: UIViewController {
     }
     
     @IBAction func touchNameField(_ sender: Any) {
-       //Add gesture to dismiss keyboard when screen is tapped
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
         nameField.becomeFirstResponder()
     }
     
     //Dismiss keyboard when return button is pressed
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         nameField.resignFirstResponder()
         
         return true
@@ -49,6 +47,13 @@ class EndGameVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Manually declare the delegate of the nameField - needed for textFieldShouldReturn
+        self.nameField.delegate = self
+        
+        //Add gesture to dismiss keyboard when screen is tapped
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(self.view.endEditing(_:))))
+        
+        //Set name to the most recent name used if it exists
         if let prevName = (leaderboard.data.sorted(by: {$0.date < $1.date}).first?.name){
             name = prevName
         }

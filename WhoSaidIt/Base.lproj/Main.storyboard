@@ -271,7 +271,7 @@
                                 <fontDescription key="fontDescription" name="TrebuchetMS-Italic" family="Trebuchet MS" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="touchNameField:" destination="7Fe-eo-dX9" eventType="touchUpOutside" id="fZo-GV-6UC"/>
+                                    <action selector="touchNameField:" destination="7Fe-eo-dX9" eventType="touchUpInside" id="GFk-aF-ORN"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wHc-sp-haU">
@@ -351,7 +351,7 @@
                     </view>
                     <connections>
                         <outlet property="localRankLbl" destination="nRw-bl-OK2" id="Hof-Ug-xx9"/>
-                        <outlet property="nameField" destination="uLc-X0-dZo" id="bH5-cW-U1w"/>
+                        <outlet property="nameField" destination="uLc-X0-dZo" id="epF-Ui-bqW"/>
                         <outlet property="numCorrectLbl" destination="unb-7w-ToW" id="GAE-b8-HAJ"/>
                         <outlet property="numIncorrectLbl" destination="2IE-dg-9np" id="zTC-Gk-hTU"/>
                         <outlet property="numSkipsLbl" destination="YFJ-3o-8Vf" id="mYK-wj-9cg"/>
