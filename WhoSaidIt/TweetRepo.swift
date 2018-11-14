@@ -14,9 +14,22 @@ class TweetRepo {
     
     let loader: TweetLoader
     var minIdSeen: Int64? = nil
+    
+    var nextTweetListener: ((TweetData) -> ())? = nil
+    
     var tweets: [TweetData] {
         didSet {
-            minIdSeen = min(minIdSeen ?? Int64.max, tweets.map({ $0.id }).min() ?? Int64.max)
+            let minTweet = self.tweets.map({ $0.id }).min() ?? Int64.max
+            self.minIdSeen = min(self.minIdSeen ?? Int64.max, minTweet)
+            
+            // If there is callback waiting for tweets call it
+            //   and then clear it!
+            if let nextTweetListener = self.nextTweetListener {
+                if let next = tweets.popLast() {
+                    nextTweetListener(next)
+                    self.nextTweetListener = nil
+                }
+            }
         }
     }
     
@@ -53,11 +66,17 @@ class TweetRepo {
         tweets = tweets.shuffled()
     }
     
-    func getNext() -> TweetData? {
-        if tweets.count < 15 {
+    func getNext(onWaiting: @escaping () -> (), callback: @escaping (TweetData) -> ()) {
+        if tweets.count < 6 {
             onTweetShortage()
         }
         
-        return tweets.popLast()
+        if let next = self.tweets.popLast() {
+            callback(next)
+        }
+        else {
+            self.nextTweetListener = callback // Call the callback when the next tweet is updated
+            onWaiting()
+        }
     }
 }

@@ -70,19 +70,19 @@ class GameVC: UIViewController {
         
         scoreLabel.backgroundColor = wasCorrect ? UIColor.green : UIColor.red
         scoreLabel.textColor = wasCorrect ? UIColor.black : UIColor.white
+        
+        self.scoreLabel.text = "Score: \(self.score)"
     }
     
     func showNextTweet() {
-        if let next = TweetRepo.instance.getNext() {
-        
-            isTweetByTwitterOne = next.user == SettingsRepo.instance.twitterOne
-            tweetBodyLabel.text = next.text
-            
-            scoreLabel.text = "Score: \(score)"
-        }
-        else {
-            spinner.startAnimating()
-        }
+        TweetRepo.instance.getNext(
+            onWaiting: { self.spinner.startAnimating() },
+            callback: { (next) in
+                self.spinner.stopAnimating()
+                
+                self.isTweetByTwitterOne = next.user == SettingsRepo.instance.twitterOne
+                self.tweetBodyLabel.text = next.text
+            })
     }
     
     @objc func tickClock() {
@@ -119,15 +119,14 @@ class GameVC: UIViewController {
     // MARK: - Navigation
      */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        let child = segue.destination as! EndGameVC
-        
-        child.numCorrect = self.numCorrect
-        child.numIncorrect = self.numIncorrect
-        child.numSkips = self.numSkips
-        child.scorePts = self.scorePts
-        child.localRank = self.localRank
-        child.overallRank = self.overallRank
+        if let child = segue.destination as? EndGameVC {
+            child.numCorrect = self.numCorrect
+            child.numIncorrect = self.numIncorrect
+            child.numSkips = self.numSkips
+            child.scorePts = self.scorePts
+            child.localRank = self.localRank
+            child.overallRank = self.overallRank
+        }
     }
 
 }
