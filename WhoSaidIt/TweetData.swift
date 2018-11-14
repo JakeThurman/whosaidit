@@ -11,10 +11,12 @@ import Foundation
 class TweetData {
     let text: String
     let user: String
+    let id: Int64
     
-    init(user: String, text: String) {
-        self.text = TweetData.removeUrls(text)
+    init(user: String, id: Int64, text: String) {
         self.user = user
+        self.id = id
+        self.text = TweetData.removeUrls(text)
     }
     
     private static func removeUrls(_ string: String) -> String {

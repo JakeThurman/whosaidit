@@ -7,17 +7,23 @@
 //
 
 import Foundation
+import TwitterKit
 
 class TweetLoader : NSObject, URLSessionDelegate {
-    let session: URLSession
-    var requestsInProgress = [String]()
+    let client: TWTRAPIClient
+    var requestsInProgress: [String]
     
     override init() {
-        session = URLSession(configuration: .default, delegate: nil, delegateQueue: nil)
+        client = TWTRAPIClient()
+        
+        requestsInProgress = [String]()
+        
+        //session = URLSession(configuration: .default, delegate: nil, delegateQueue: nil)
+        
         super.init()
     }
     
-    func loadNewTweets(username: String, maxId: Int?, onError: @escaping (Any) -> Void, onSuccess: @escaping (Any) -> Void) {
+    func loadNewTweets(username: String, maxId: Int64?, onError: @escaping (Any) -> Void, onSuccess: @escaping ([[String: Any]]) -> Void) {
         // Clanup the username given
         let username = username.replacingOccurrences(of: "@", with: "")
         
@@ -37,52 +43,47 @@ class TweetLoader : NSObject, URLSessionDelegate {
         }
         
         // Grab the basic url we want to load
-        var urlString = "https://api.twitter.com/1.1/statuses/user_timeline.json?exclude_replies=1&include_rts=0&trim_user=1&screen_name=\(username)"
+        let urlString = "https://api.twitter.com/1.1/statuses/user_timeline.json"
         
-        // Append the maxId if we have it
+        var params = [
+            "exclude_replies": "1",
+            "include_rts": "0",
+            "trim_user": "1",
+            "screen_name": username
+        ]
+        
         if let maxId = maxId {
-            urlString += "&max_id=\(maxId)"
+            params["max_id"] = "\(maxId)"
         }
         
-        // Stick the url in a url object and ensure we really have it
-        guard let url = URL(string: urlString) else {
-            onError("Failed to make url for twitter data: \(urlString)")
-            return
-        }
+        var clientError : NSError?
         
-        // Setup a download task to load the url
-        let task = session.downloadTask(with: url) { (downloadedTo, _, __) in
-            
-            // make sure the url was actually downloaded!
-            guard let downloadedTo = downloadedTo else {
-                onError("A download error occured :(")
+        let request = client.urlRequest(withMethod: "GET", urlString: urlString, parameters: params, error: &clientError)
+        
+        client.sendTwitterRequest(request) { (response, data, connectionError) -> Void in
+            if let connectionError = connectionError {
+                onError("Error: \(connectionError)")
                 return
             }
             
             do {
-                // Parse out the content of the
-                let content = try Data(contentsOf: downloadedTo)
-                let obj = try JSONSerialization.jsonObject(with: content, options: .mutableContainers)
-                guard let dict = obj as? [String : AnyObject] else {
-                    onError(obj)
+                let obj = try JSONSerialization.jsonObject(with: data!, options: [])
+                if let errors = (obj as? [String: Any])?["errors"] {
+                    onError(errors)
                     return
                 }
                 
-                if let errors = dict["errors"] {
-                    onError(errors)
+                guard let dict = obj as? [[String: Any]] else {
+                    onError(obj)
+                    return
                 }
-                else {
-                    // Guess what? No errors!
-                    onSuccess(dict)
-                    cleanup() // error never got called, still perform cleanup
-                }
-            }
-            catch {
-                onError("An exception was thrown trying to extract data from api request")
+
+                // Guess what? No errors!
+                onSuccess(dict)
+                cleanup() // error never got called, still perform cleanup
+            } catch let jsonError as NSError {
+                onError(jsonError.localizedDescription)
             }
         }
-        
-        // Start the download task
-        task.resume()
     }
 }
