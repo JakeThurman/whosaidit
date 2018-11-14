@@ -89,8 +89,7 @@ class GameVC: UIViewController {
         secondsRemaining -= 1
         timeRemainingLabel.text = "\(secondsRemaining) seconds"
     
-    timeRemainingLabel.backgroundColor = UIColor.white 
-        
+        timeRemainingLabel.backgroundColor = UIColor.white
         
         if (secondsRemaining <= 0) {
             onEndGame();

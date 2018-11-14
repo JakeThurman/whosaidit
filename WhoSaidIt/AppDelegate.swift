@@ -13,11 +13,13 @@ import TwitterKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let p = "XRwf#8Vesj9#P7FXRLK#j12QlvvR"
-    let s = "0RyY3ZA#2JR9GHO#eggtjtZuoiu#STtTP7rE76ZMJq#qGZXQ#xILCS##"
+    let p = "XR##wf8Ve#sj9P###7FXR#LKj12QlvvR#"
+    let s = "0#RyY3ZA2JR9#GHOeggtjtZuoiuS#TtTP#7rE76ZMJq##cqGZXQxI#LCS"
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         TWTRTwitter.sharedInstance().start(withConsumerKey:p.replacingOccurrences(of: "#", with: ""), consumerSecret:s.replacingOccurrences(of: "#", with: ""))
+        
+        
         return true
     }
     
