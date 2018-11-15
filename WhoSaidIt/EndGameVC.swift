@@ -51,7 +51,7 @@ class EndGameVC: UIViewController, UITextFieldDelegate {
         self.nameField.delegate = self
         
         //Add gesture to dismiss keyboard when screen is tapped
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(textFieldShouldReturn(_:))))
+        //self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(textFieldShouldReturn(_:))))
         
         //Set name to the most recent name used if it exists
         if let prevName = (leaderboard.data.sorted(by: {$0.date > $1.date}).first?.name){

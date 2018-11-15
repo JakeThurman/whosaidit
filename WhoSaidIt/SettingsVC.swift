@@ -10,6 +10,12 @@ import UIKit
 
 class SettingsVC: UITableViewController {
     let repo = SettingsRepo.instance
+    
+    var row = 0
+    
+    @IBAction func unwindSaveSettings(segue: UIStoryboardSegue){
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +40,11 @@ class SettingsVC: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return repo.data.count
     }
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        row = indexPath.row
+        return indexPath
+    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "settingCell", for: indexPath)
@@ -46,12 +57,12 @@ class SettingsVC: UITableViewController {
 
     /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+     */
+     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let child = segue.destination as? ChangeSettingVC{
+            child.settingName = repo.data[row].name
+            child.settingValue = repo.data[row].value
+        }
     }
-    */
-
 }

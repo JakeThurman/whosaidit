@@ -478,6 +478,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="a5L-sK-Nmq" kind="show" id="3MJ-Ae-EuN"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -490,6 +493,52 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yGh-kh-gkS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1273" y="939"/>
+        </scene>
+        <!--ChangeSettingVC-->
+        <scene sceneID="dXJ-1h-a4T">
+            <objects>
+                <viewController title="ChangeSettingVC" id="a5L-sK-Nmq" customClass="ChangeSettingVC" customModule="WhoSaidIt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="huQ-ZH-lLu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NMe-4Y-URb">
+                                <rect key="frame" x="87.5" y="164" width="200" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="Q0A-1c-dvN"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="touchNameField:" destination="a5L-sK-Nmq" eventType="touchUpInside" id="D56-XJ-mTF"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NMe-4Y-URb" firstAttribute="centerX" secondItem="huQ-ZH-lLu" secondAttribute="centerX" id="AuQ-00-usP"/>
+                            <constraint firstItem="NMe-4Y-URb" firstAttribute="top" secondItem="knp-oz-VlX" secondAttribute="top" constant="100" id="F3Z-VE-J6L"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="knp-oz-VlX"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="lr4-0s-Mtf">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="IqM-N5-q2o">
+                            <connections>
+                                <action selector="leavingView:" destination="a5L-sK-Nmq" id="b3f-5b-shj"/>
+                                <segue destination="Ayk-hB-b2f" kind="unwind" unwindAction="unwindSaveSettingsWithSegue:" id="2Ul-UR-4UU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="changeSettingNavBar" destination="lr4-0s-Mtf" id="EqI-po-jEB"/>
+                        <outlet property="settingField" destination="NMe-4Y-URb" id="AMy-ag-yWq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GZ1-DQ-xBR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Ayk-hB-b2f" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1983.2" y="939.58020989505258"/>
         </scene>
         <!--Settings-->
         <scene sceneID="cNj-sc-YPy">
