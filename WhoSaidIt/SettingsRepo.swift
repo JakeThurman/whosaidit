@@ -18,15 +18,10 @@ class SettingsRepo: NSObject {
     let fileUrl: URL?
     @objc dynamic var data: [Setting]
     
-    // Warning: obsolete
-    var twitterOne: String
-    var twitterTwo: String
+    var twitterOne: String { get { return try! getSettingValue(settingName: "Twitter 1") as! String } }
+    var twitterTwo: String { get { return try! getSettingValue(settingName: "Twitter 2") as! String } }
     
     private override init() {
-        // Warning: obsolete
-        twitterOne = "@cnn"
-        twitterTwo = "@theonion"
-        
         data = [Setting]()
         let path = Bundle.main.path(forResource: "settings", ofType: "json")
         if let filePath = path {
