@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OVf-ko-BIM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OVf-ko-BIM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,9 +18,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3IS-js-I4h">
-                                <rect key="frame" x="128.5" y="299.5" width="118" height="68"/>
-                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="45"/>
-                                <state key="normal" title="Start"/>
+                                <rect key="frame" x="125.5" y="300.5" width="124" height="66"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="45"/>
+                                <state key="normal" title="START">
+                                    <color key="titleColor" red="0.1137254902" green="0.63137254899999995" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
                                 <connections>
                                     <segue destination="bfQ-0X-OIq" kind="show" identifier="gameSegue" id="oYT-fg-qyW"/>
                                 </connections>
@@ -191,92 +193,92 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TIME'S UP!" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NTU-2J-WpT">
-                                <rect key="frame" x="118" y="120" width="139.5" height="33.5"/>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="28"/>
+                                <rect key="frame" x="105" y="70" width="165.5" height="44.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="37"/>
                                 <color key="textColor" red="0.1137254902" green="0.63137254899999995" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Correct:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Gl-oF-VGi">
-                                <rect key="frame" x="87" y="265.5" width="83" height="24.5"/>
-                                <fontDescription key="fontDescription" name="Trebuchet-BoldItalic" family="Trebuchet MS" pointSize="21"/>
+                                <rect key="frame" x="61" y="218.5" width="75" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Incorrect:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ki5-QG-tz0">
-                                <rect key="frame" x="72" y="302" width="98" height="25"/>
-                                <fontDescription key="fontDescription" name="Trebuchet-BoldItalic" family="Trebuchet MS" pointSize="21"/>
+                                <rect key="frame" x="47.5" y="254.5" width="88.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skips:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6vi-Ku-avg">
-                                <rect key="frame" x="111" y="339" width="59" height="25"/>
-                                <fontDescription key="fontDescription" name="Trebuchet-BoldItalic" family="Trebuchet MS" pointSize="21"/>
+                                <rect key="frame" x="79.5" y="290.5" width="56.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="scorePts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGE-kU-v7g">
-                                <rect key="frame" x="207" y="399" width="85" height="25"/>
-                                <fontDescription key="fontDescription" name="Trebuchet-BoldItalic" family="Trebuchet MS" pointSize="21"/>
+                                <rect key="frame" x="146" y="350" width="75" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="numInc" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2IE-dg-9np">
-                                <rect key="frame" x="207" y="302" width="69" height="25"/>
-                                <fontDescription key="fontDescription" name="Trebuchet-BoldItalic" family="Trebuchet MS" pointSize="21"/>
+                                <rect key="frame" x="146" y="255" width="63" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="numCor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="unb-7w-ToW">
-                                <rect key="frame" x="207" y="265.5" width="76" height="25"/>
-                                <fontDescription key="fontDescription" name="Trebuchet-BoldItalic" family="Trebuchet MS" pointSize="21"/>
+                                <rect key="frame" x="146" y="219" width="68" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="numSkips" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YFJ-3o-8Vf">
-                                <rect key="frame" x="207" y="339" width="92" height="25"/>
-                                <fontDescription key="fontDescription" name="Trebuchet-BoldItalic" family="Trebuchet MS" pointSize="21"/>
+                                <rect key="frame" x="146" y="291" width="83.5" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Local Rank:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ST1-3N-yGu">
-                                <rect key="frame" x="54" y="436" width="116" height="25"/>
-                                <fontDescription key="fontDescription" name="Trebuchet-BoldItalic" family="Trebuchet MS" pointSize="21"/>
+                                <rect key="frame" x="30.5" y="385.5" width="105.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overall Rank:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdp-gv-ISY">
-                                <rect key="frame" x="34" y="473" width="136" height="25"/>
-                                <fontDescription key="fontDescription" name="Trebuchet-BoldItalic" family="Trebuchet MS" pointSize="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Global Rank:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdp-gv-ISY">
+                                <rect key="frame" x="20" y="421.5" width="116" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bN7-vw-9Kh">
-                                <rect key="frame" x="108" y="399" width="62" height="25"/>
-                                <fontDescription key="fontDescription" name="Trebuchet-BoldItalic" family="Trebuchet MS" pointSize="21"/>
+                                <rect key="frame" x="77" y="349.5" width="59" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="localRank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nRw-bl-OK2">
-                                <rect key="frame" x="207" y="436" width="97" height="25"/>
-                                <fontDescription key="fontDescription" name="Trebuchet-BoldItalic" family="Trebuchet MS" pointSize="21"/>
+                                <rect key="frame" x="146" y="386" width="82" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8PA-qL-66n">
-                                <rect key="frame" x="35" y="183.5" width="135" height="27"/>
-                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="23"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8PA-qL-66n">
+                                <rect key="frame" x="76.5" y="164.5" width="59.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <color key="textColor" red="0.11372549019607843" green="0.63137254901960782" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="overallRank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ckc-5j-g5u">
-                                <rect key="frame" x="207" y="473" width="120" height="25"/>
-                                <fontDescription key="fontDescription" name="Trebuchet-BoldItalic" family="Trebuchet MS" pointSize="21"/>
+                                <rect key="frame" x="146" y="422" width="98" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Insert Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uLc-X0-dZo">
-                                <rect key="frame" x="207" y="182" width="143" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="High Score Name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uLc-X0-dZo">
+                                <rect key="frame" x="146" y="161.5" width="214" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="143" id="hzn-o1-cxW"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="10" id="hzn-o1-cxW"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="TrebuchetMS-Italic" family="Trebuchet MS" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="touchNameField:" destination="7Fe-eo-dX9" eventType="touchUpInside" id="GFk-aF-ORN"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wHc-sp-haU">
-                                <rect key="frame" x="137" y="528" width="101" height="39"/>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="22"/>
+                                <rect key="frame" x="137.5" y="529" width="100" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Play Again">
                                     <color key="titleColor" red="0.1137254902" green="0.63137254899999995" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -286,8 +288,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xPh-ra-37w">
-                                <rect key="frame" x="167" y="577" width="41" height="39"/>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="22"/>
+                                <rect key="frame" x="167" y="578" width="41" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Quit">
                                     <color key="titleColor" red="0.1137254902" green="0.63137254899999995" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
@@ -302,30 +304,31 @@
                             <constraint firstItem="wHc-sp-haU" firstAttribute="centerX" secondItem="1fh-em-6qr" secondAttribute="centerX" id="0bb-aX-8wV"/>
                             <constraint firstItem="NTU-2J-WpT" firstAttribute="centerX" secondItem="1fh-em-6qr" secondAttribute="centerX" id="0p9-6e-tCr"/>
                             <constraint firstItem="xPh-ra-37w" firstAttribute="centerX" secondItem="1fh-em-6qr" secondAttribute="centerX" id="1Id-9h-k7G"/>
-                            <constraint firstItem="uLc-X0-dZo" firstAttribute="leading" secondItem="8PA-qL-66n" secondAttribute="trailing" constant="37" id="26a-C3-UFN"/>
-                            <constraint firstItem="NTU-2J-WpT" firstAttribute="top" secondItem="QwB-OO-j8v" secondAttribute="top" constant="100" id="2kz-Jl-bWC"/>
+                            <constraint firstItem="uLc-X0-dZo" firstAttribute="leading" secondItem="8PA-qL-66n" secondAttribute="trailing" constant="10" id="26a-C3-UFN"/>
+                            <constraint firstItem="NTU-2J-WpT" firstAttribute="top" secondItem="QwB-OO-j8v" secondAttribute="top" constant="50" id="2kz-Jl-bWC"/>
                             <constraint firstItem="Ki5-QG-tz0" firstAttribute="top" secondItem="5Gl-oF-VGi" secondAttribute="bottom" constant="12" id="6jt-ji-iRp"/>
-                            <constraint firstItem="5Gl-oF-VGi" firstAttribute="leading" secondItem="QwB-OO-j8v" secondAttribute="leading" constant="87" id="8Ed-cC-odW"/>
+                            <constraint firstItem="5Gl-oF-VGi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QwB-OO-j8v" secondAttribute="leading" id="8Ed-cC-odW"/>
                             <constraint firstItem="QwB-OO-j8v" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="unb-7w-ToW" secondAttribute="trailing" constant="92" id="9RG-i7-YXF"/>
-                            <constraint firstItem="Ki5-QG-tz0" firstAttribute="leading" secondItem="QwB-OO-j8v" secondAttribute="leading" constant="72" id="BCF-qv-nxz"/>
+                            <constraint firstItem="Ki5-QG-tz0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QwB-OO-j8v" secondAttribute="leading" id="BCF-qv-nxz"/>
                             <constraint firstItem="ST1-3N-yGu" firstAttribute="trailing" secondItem="8PA-qL-66n" secondAttribute="trailing" id="BHV-Ys-5o5"/>
                             <constraint firstItem="QwB-OO-j8v" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nRw-bl-OK2" secondAttribute="trailing" constant="71" id="EFg-D7-aec"/>
-                            <constraint firstItem="6vi-Ku-avg" firstAttribute="leading" secondItem="QwB-OO-j8v" secondAttribute="leading" constant="111" id="F5E-Hh-Vdd"/>
+                            <constraint firstItem="6vi-Ku-avg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QwB-OO-j8v" secondAttribute="leading" id="F5E-Hh-Vdd"/>
                             <constraint firstItem="QwB-OO-j8v" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2IE-dg-9np" secondAttribute="trailing" constant="99" id="GMj-Dh-Rmp"/>
+                            <constraint firstItem="QwB-OO-j8v" firstAttribute="bottom" secondItem="xPh-ra-37w" secondAttribute="bottom" constant="50" id="Gk3-HA-1Ef"/>
                             <constraint firstItem="QwB-OO-j8v" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QGE-kU-v7g" secondAttribute="trailing" constant="83" id="HCE-rq-c5Q"/>
-                            <constraint firstItem="jdp-gv-ISY" firstAttribute="leading" secondItem="QwB-OO-j8v" secondAttribute="leading" constant="34" id="HMO-bA-zWH"/>
+                            <constraint firstItem="jdp-gv-ISY" firstAttribute="leading" relation="lessThanOrEqual" secondItem="QwB-OO-j8v" secondAttribute="leading" constant="20" id="HMO-bA-zWH"/>
                             <constraint firstItem="unb-7w-ToW" firstAttribute="centerY" secondItem="5Gl-oF-VGi" secondAttribute="centerY" id="Iih-Zg-qBc"/>
                             <constraint firstItem="QwB-OO-j8v" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ckc-5j-g5u" secondAttribute="trailing" constant="48" id="Jkm-3R-Yqu"/>
                             <constraint firstItem="6vi-Ku-avg" firstAttribute="trailing" secondItem="8PA-qL-66n" secondAttribute="trailing" id="Ljh-rz-wmR"/>
                             <constraint firstItem="YFJ-3o-8Vf" firstAttribute="leading" secondItem="uLc-X0-dZo" secondAttribute="leading" id="MZz-kb-myZ"/>
                             <constraint firstItem="5Gl-oF-VGi" firstAttribute="trailing" secondItem="8PA-qL-66n" secondAttribute="trailing" id="N7f-xF-4u6"/>
-                            <constraint firstItem="5Gl-oF-VGi" firstAttribute="top" secondItem="8PA-qL-66n" secondAttribute="bottom" constant="55" id="PDf-2g-gAc"/>
+                            <constraint firstItem="5Gl-oF-VGi" firstAttribute="top" secondItem="8PA-qL-66n" secondAttribute="bottom" constant="30" id="PDf-2g-gAc"/>
                             <constraint firstItem="6vi-Ku-avg" firstAttribute="top" secondItem="Ki5-QG-tz0" secondAttribute="bottom" constant="12" id="RFX-kG-p38"/>
                             <constraint firstItem="uLc-X0-dZo" firstAttribute="centerY" secondItem="8PA-qL-66n" secondAttribute="centerY" id="SiK-6f-hYF"/>
                             <constraint firstItem="xPh-ra-37w" firstAttribute="top" secondItem="wHc-sp-haU" secondAttribute="bottom" constant="10" id="V7H-ik-qKW"/>
                             <constraint firstItem="bN7-vw-9Kh" firstAttribute="top" secondItem="6vi-Ku-avg" secondAttribute="bottom" constant="35" id="VkM-t5-TkC"/>
                             <constraint firstItem="unb-7w-ToW" firstAttribute="leading" secondItem="uLc-X0-dZo" secondAttribute="leading" id="Wrs-xn-VrF"/>
-                            <constraint firstItem="wHc-sp-haU" firstAttribute="top" secondItem="jdp-gv-ISY" secondAttribute="bottom" constant="30" id="WtL-if-duI"/>
+                            <constraint firstItem="wHc-sp-haU" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jdp-gv-ISY" secondAttribute="bottom" id="WtL-if-duI"/>
                             <constraint firstItem="Ki5-QG-tz0" firstAttribute="trailing" secondItem="8PA-qL-66n" secondAttribute="trailing" id="XsJ-TO-m6I"/>
                             <constraint firstItem="nRw-bl-OK2" firstAttribute="leading" secondItem="uLc-X0-dZo" secondAttribute="leading" id="Yhf-Fk-O9h"/>
                             <constraint firstItem="QGE-kU-v7g" firstAttribute="leading" secondItem="uLc-X0-dZo" secondAttribute="leading" id="ZiY-h2-jCo"/>
@@ -335,13 +338,13 @@
                             <constraint firstItem="2IE-dg-9np" firstAttribute="leading" secondItem="uLc-X0-dZo" secondAttribute="leading" id="foC-Nm-seB"/>
                             <constraint firstItem="YFJ-3o-8Vf" firstAttribute="centerY" secondItem="6vi-Ku-avg" secondAttribute="centerY" id="hJq-CW-ypr"/>
                             <constraint firstItem="ckc-5j-g5u" firstAttribute="leading" secondItem="uLc-X0-dZo" secondAttribute="leading" id="kiO-Im-pJS"/>
-                            <constraint firstItem="8PA-qL-66n" firstAttribute="leading" secondItem="QwB-OO-j8v" secondAttribute="leading" constant="35" id="l5Y-pb-G6D"/>
-                            <constraint firstItem="bN7-vw-9Kh" firstAttribute="leading" secondItem="QwB-OO-j8v" secondAttribute="leading" constant="108" id="mT2-uP-FPu"/>
+                            <constraint firstItem="8PA-qL-66n" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QwB-OO-j8v" secondAttribute="leading" id="l5Y-pb-G6D"/>
+                            <constraint firstItem="bN7-vw-9Kh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QwB-OO-j8v" secondAttribute="leading" id="mT2-uP-FPu"/>
                             <constraint firstItem="2IE-dg-9np" firstAttribute="centerY" secondItem="Ki5-QG-tz0" secondAttribute="centerY" id="o94-as-UXk"/>
                             <constraint firstItem="jdp-gv-ISY" firstAttribute="trailing" secondItem="8PA-qL-66n" secondAttribute="trailing" id="rFc-Zh-8Np"/>
-                            <constraint firstItem="8PA-qL-66n" firstAttribute="top" secondItem="NTU-2J-WpT" secondAttribute="bottom" constant="30" id="rlw-iQ-p9d"/>
-                            <constraint firstItem="ST1-3N-yGu" firstAttribute="leading" secondItem="QwB-OO-j8v" secondAttribute="leading" constant="54" id="sgD-Qc-f2P"/>
-                            <constraint firstItem="QwB-OO-j8v" firstAttribute="trailing" secondItem="uLc-X0-dZo" secondAttribute="trailing" constant="25" id="w2k-XI-hND"/>
+                            <constraint firstItem="8PA-qL-66n" firstAttribute="top" secondItem="NTU-2J-WpT" secondAttribute="bottom" constant="50" id="rlw-iQ-p9d"/>
+                            <constraint firstItem="ST1-3N-yGu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QwB-OO-j8v" secondAttribute="leading" id="sgD-Qc-f2P"/>
+                            <constraint firstItem="QwB-OO-j8v" firstAttribute="trailing" secondItem="uLc-X0-dZo" secondAttribute="trailing" constant="15" id="w2k-XI-hND"/>
                             <constraint firstItem="ST1-3N-yGu" firstAttribute="top" secondItem="bN7-vw-9Kh" secondAttribute="bottom" constant="12" id="wR3-sG-c16"/>
                             <constraint firstItem="bN7-vw-9Kh" firstAttribute="trailing" secondItem="8PA-qL-66n" secondAttribute="trailing" id="xUr-Yd-Bep"/>
                             <constraint firstItem="nRw-bl-OK2" firstAttribute="centerY" secondItem="ST1-3N-yGu" secondAttribute="centerY" id="y9Y-T0-rWA"/>
