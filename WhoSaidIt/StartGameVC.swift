@@ -9,18 +9,26 @@
 import UIKit
 
 class StartGameVC: UIViewController {
+    
+    var shouldStartGame = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        //Segue is only available when view has appeared
+        if shouldStartGame {
+            performSegue(withIdentifier: "gameSegue", sender: nil)
+        }
     }
     
     @IBAction func unwindToStartGame(segue: UIStoryboardSegue) {
+        shouldStartGame = false
     }
     
     @IBAction func restartGame(segue: UIStoryboardSegue){
-        performSegue(withIdentifier: "gameSegue", sender: nil)
+        shouldStartGame = true
     }
     
     /*
