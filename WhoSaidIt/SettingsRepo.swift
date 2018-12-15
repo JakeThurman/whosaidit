@@ -18,8 +18,8 @@ class SettingsRepo: NSObject {
     let fileUrl: URL?
     @objc dynamic var data: [Setting]
     
-    var twitterOne: String { get { return try! getSettingValue(settingName: "Twitter 1") as! String } }
-    var twitterTwo: String { get { return try! getSettingValue(settingName: "Twitter 2") as! String } }
+    var twitterOne: String { get { return try! getSettingValue(named: "Twitter 1") as! String } }
+    var twitterTwo: String { get { return try! getSettingValue(named: "Twitter 2") as! String } }
     
     private override init() {
         data = [Setting]()
@@ -91,9 +91,25 @@ class SettingsRepo: NSObject {
         removeObserver(self, forKeyPath: "data")
     }
     
+    func setSettingValue(named settingName: String, to newValue: Any) throws {
+        for setting in data {
+            if setting.name == settingName {
+                setting.value = newValue
+                
+                // Also be sure to clear the cached tweets so
+                //  that next game we don't have tweets from
+                //  the old user sitting around
+                TweetRepo.instance.clearCache()
+                return
+            }
+        }
+        
+        throw MyError.badSettingNameError("'\(settingName)' is not a valid setting")
+    }
+    
     // Returns the value for a setting given the setting name
     // Throws an error when the setting name doesn't exist
-    func getSettingValue(settingName: String) throws -> Any {
+    func getSettingValue(named settingName: String) throws -> Any {
         for setting in data {
             if setting.name == settingName {
                 return setting.value

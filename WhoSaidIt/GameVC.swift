@@ -17,17 +17,13 @@ class GameVC: UIViewController {
     @IBOutlet weak var twitterOne: UIButton!
     @IBOutlet weak var twitterTwo: UIButton!
     
-    // Dependencies!
-    /* - Tweet Repo
-     * -
-     */
-    
     // Local state
-    var secondsRemaining = 20
-    var secWhenDisplayed = 0
+    var secondsRemaining = 30
+    var secWhenDisplayed = 30
     var timer: Timer! = nil
     var isTweetByTwitterOne = true
     
+    // Score state
     var numCorrect = 0
     var numIncorrect = 0
     var numSkips = 0
@@ -42,6 +38,8 @@ class GameVC: UIViewController {
         
         twitterOne.titleLabel?.text = SettingsRepo.instance.twitterOne
         twitterTwo.titleLabel?.text = SettingsRepo.instance.twitterTwo
+        
+        timeRemainingLabel.text = "\(secondsRemaining) seconds"
         
         showNextTweet()
     }
@@ -60,11 +58,9 @@ class GameVC: UIViewController {
     
     func handleScoreChange(wasCorrect: Bool) {
         let incOrDec = wasCorrect ? 1 : -1
+        let scoreChange = incOrDec * 100
         
-        //The longer you take, the more points you lose, the less points you gain
-        let scoreChange = (incOrDec * 100) - (5 * (secWhenDisplayed-secondsRemaining))
-        //Always gain at least 10 points on correct answer
-        scorePts += (wasCorrect && scoreChange < 10) ? 10 : scoreChange
+        scorePts += scoreChange
         
         numCorrect += wasCorrect ? 1 : 0
         numIncorrect += wasCorrect ? 0 : 1
@@ -76,6 +72,10 @@ class GameVC: UIViewController {
     }
     
     func showNextTweet() {
+        // Load the next tweet,
+        // - If we have to wait for new tweets the "onWaiting" closure is called
+        // - The tweet is given to the "callback" cloure whenever it is ready.
+        //    even if that means we have to wait.
         TweetRepo.instance.getNext(
             onWaiting: { self.spinner.startAnimating() },
             callback: { (next) in
