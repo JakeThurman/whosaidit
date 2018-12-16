@@ -35,7 +35,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HVV-77-c2s"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Game" id="q9R-jt-aQw"/>
+                    <tabBarItem key="tabBarItem" title="Game" image="Collaboration" selectedImage="Collaboration" id="q9R-jt-aQw"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BLQ-7W-bVH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -436,7 +436,7 @@
         <scene sceneID="rZR-oz-FDk">
             <objects>
                 <navigationController title="Leaderboard" id="Ieb-r2-jEH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Leaderboard" id="7dC-g7-fum"/>
+                    <tabBarItem key="tabBarItem" title="Leaderboard" image="Trophy" selectedImage="Trophy" id="7dC-g7-fum"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oH6-1A-Dio">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -526,7 +526,7 @@
         <scene sceneID="cNj-sc-YPy">
             <objects>
                 <navigationController id="QHZ-4q-iPq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" id="4cY-R8-QOC"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="Settings" selectedImage="Settings" id="4cY-R8-QOC"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="36y-Y1-uxD">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -542,6 +542,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Collaboration" width="30" height="30"/>
+        <image name="Settings" width="30" height="30"/>
+        <image name="Trophy" width="30" height="30"/>
         <image name="Twitter_Logo_Blue.png" width="400" height="400"/>
     </resources>
 </document>
