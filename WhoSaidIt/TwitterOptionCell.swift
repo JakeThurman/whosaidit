@@ -15,9 +15,10 @@ class TwitterOptionCell: UITableViewCell {
     @IBOutlet weak var vsLabel: UILabel!
     
     func render(isSelected: Bool, twitterOne: (String, UIImage?), twitterTwo: (String, UIImage?)) {
-        accessoryType = isSelected ? .checkmark : .none
+        backgroundColor = isSelected ? #colorLiteral(red: 0, green: 0.6431372549, blue: 0.9764705882, alpha: 1) : UIColor.white
+        vsLabel.textColor = isSelected ? UIColor.white : UIColor.black
 
-        vsLabel.text = "\(twitterOne.0) VS \(twitterTwo.0)"
+        vsLabel.text = "\(twitterOne.0)\nVS\n\(twitterTwo.0)"
         
         twitter1Image.image = twitterOne.1
         twitter2Image.image = twitterTwo.1
