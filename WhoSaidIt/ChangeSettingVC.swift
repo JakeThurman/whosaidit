@@ -17,9 +17,7 @@ class ChangeSettingVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var settingField: UITextField!
     @IBOutlet weak var changeSettingNavBar: UINavigationItem!
     
-    @IBAction func leavingView(_ sender: Any) {
-        // TODO: This function isn't called????
-        
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         do {
             try SettingsRepo.instance.setSettingValue(named: settingName, to: settingField.text ?? settingValue)
         }

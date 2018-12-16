@@ -58,7 +58,7 @@ class GameVC: UIViewController {
     
     func handleScoreChange(wasCorrect: Bool) {
         let incOrDec = wasCorrect ? 1 : -1
-        let scoreChange = incOrDec * 100
+        let scoreChange = incOrDec * 10
         
         scorePts += scoreChange
         

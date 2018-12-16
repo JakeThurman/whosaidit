@@ -525,10 +525,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="knp-oz-VlX"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="lr4-0s-Mtf">
+                    <navigationItem key="navigationItem" title="settingName" id="lr4-0s-Mtf">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="IqM-N5-q2o">
                             <connections>
-                                <action selector="leavingView:" destination="a5L-sK-Nmq" id="b3f-5b-shj"/>
                                 <segue destination="Ayk-hB-b2f" kind="unwind" unwindAction="unwindSaveSettingsWithSegue:" id="2Ul-UR-4UU"/>
                             </connections>
                         </barButtonItem>
