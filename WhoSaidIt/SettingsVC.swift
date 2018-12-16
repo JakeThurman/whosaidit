@@ -10,8 +10,8 @@ import UIKit
 
 class SettingsVC: UITableViewController {
     let repo = SettingsRepo.instance
-    
-    var row = 0
+    var selectedOption: Int = 0
+    var imageMap = [String:UIImage]()
     
     @IBAction func unwindSaveSettings(segue: UIStoryboardSegue){
         // We don't have many rows, just reload them
@@ -21,6 +21,8 @@ class SettingsVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        updateSelectedOption()
+        
         repo.addObserver(self, forKeyPath: "data", options: .new, context: nil)
     }
 
@@ -28,42 +30,48 @@ class SettingsVC: UITableViewController {
         repo.removeObserver(self, forKeyPath: "data")
     }
     
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        tableView.reloadData()
+    func updateSelectedOption() {
+        selectedOption = repo.selectedOptionsIndex
     }
     
-    // MARK: - Table view data source
-
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        updateSelectedOption()
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return repo.data.count
-    }
-    
-    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        row = indexPath.row
-        return indexPath
+        return SettingsRepo.options.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "settingCell", for: indexPath)
-
-        cell.textLabel?.text = "\(repo.data[indexPath.row].name)"
-        cell.detailTextLabel?.text = "\(repo.data[indexPath.row].value)"
+        let option = SettingsRepo.options[indexPath.row]
+        let isSelected = indexPath.row == selectedOption
+        let cell = tableView.dequeueReusableCell(withIdentifier: "settingCell", for: indexPath) as! TwitterOptionCell
+        
+        cell.render(isSelected: isSelected,
+                    twitterOne: (option.0, imageMap[option.0]),
+                    twitterTwo: (option.1, imageMap[option.1]))
 
         return cell
     }
-
-    /*
-    // MARK: - Navigation
-     */
-     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let child = segue.destination as? ChangeSettingVC{
-            child.settingName = repo.data[row].name
-            child.settingValue = repo.data[row].value
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let oldSelectedOption = selectedOption
+        selectedOption = indexPath.row
+        
+        do {
+            try SettingsRepo.instance.setSettingValue(
+                named: "selected_option",
+                to: indexPath.row)
         }
+        catch {
+            print("Twitter source change failed to save :(")
+        }
+        
+        // Reload both rows
+        tableView.reloadRows(at: [indexPath, IndexPath(row: oldSelectedOption, section: 0)], with: .none)
     }
 }

@@ -1,12 +1,7 @@
 [
     {
-        "name": "Twitter 1",
-        "value": "@cnn",
+        "name": "selected_option",
+        "value": 0,
         "order": 0
-    },
-    {
-        "name": "Twitter 2",
-        "value": "@theonion",
-        "order": 1
     }
 ]

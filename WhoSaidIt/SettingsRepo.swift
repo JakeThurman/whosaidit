@@ -13,14 +13,21 @@ enum MyError: Error {
 }
 
 class SettingsRepo: NSObject {
+    static let options = [
+        ("@cnn", "@theonion"),
+        ("@jake_thurman", "@IrkedIndeed"),
+        ("@yeevahon", "@GYurisic")
+    ]
+    
     static let instance = SettingsRepo()
     
     let fileUrl: URL?
     @objc dynamic var data: [Setting]
     
-    var twitterOne: String { get { return try! getSettingValue(named: "Twitter 1") as! String } }
-    var twitterTwo: String { get { return try! getSettingValue(named: "Twitter 2") as! String } }
-    
+    var selectedOptionsIndex: Int { get { return try! getSettingValue(named: "selected_option") as! Int } }
+    var twitterOne: String { get { return SettingsRepo.options[selectedOptionsIndex].0 } }
+    var twitterTwo: String { get { return SettingsRepo.options[selectedOptionsIndex].1 } }
+
     private override init() {
         data = [Setting]()
         let path = Bundle.main.path(forResource: "settings", ofType: "json")
