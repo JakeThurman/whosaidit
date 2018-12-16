@@ -19,12 +19,17 @@ class TweetData {
         self.text = TweetData.removeUrls(text)
     }
     
-    private static func removeUrls(_ string: String) -> String {
-        let output = NSMutableString(string: string)
+    private static func removeUrls(_ input: String) -> String {
+        let output = NSMutableString(string: input)
         
-        if let regex = try? NSRegularExpression(pattern: "((http)s?://)?[A-Za-z0-9]*\\.[A-Za-z0-9]*(\\.[A-Za-z0-9]*)*[/A-Za-z0-9]*", options: .caseInsensitive)
+        if let regex = try? NSRegularExpression(pattern: "((http)s?://)?[A-Za-z0-9]+\\.[A-Za-z0-9][A-Za-z0-9]+(\\.[A-Za-z0-9]+)*[/A-Za-z0-9]*", options: .caseInsensitive)
         {
-            regex.replaceMatches(in: output, options: [], range: NSRange(location: 0, length: string.count), withTemplate: "")
+            regex.replaceMatches(in: output, options: [], range: NSRange(location: 0, length: input.count), withTemplate: "")
+        }
+        
+        // SPECIAL CASE: If it's just a url, don't remove it.
+        if (output as String).trimmingCharacters(in: .whitespaces).isEmpty {
+            return input
         }
         
         return (output as String)

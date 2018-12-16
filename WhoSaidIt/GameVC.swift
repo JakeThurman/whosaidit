@@ -36,8 +36,8 @@ class GameVC: UIViewController {
         
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.tickClock), userInfo: nil, repeats: true)
         
-        twitterOne.titleLabel?.text = SettingsRepo.instance.twitterOne
-        twitterTwo.titleLabel?.text = SettingsRepo.instance.twitterTwo
+        twitterOne.setTitle(SettingsRepo.instance.twitterOne, for: .normal)
+        twitterTwo.setTitle(SettingsRepo.instance.twitterTwo, for: .normal)
         
         timeRemainingLabel.text = "\(secondsRemaining) seconds"
         

@@ -66,6 +66,11 @@ class TweetRepo {
     }
 
     func addTweets(by user: String, rawSet: [[String: Any]]) {
+        // Note: Twitter only returns first 140 chars of a tweet
+        //       for backwards compatability in "text". They have
+        //       chosen not to include an option to include a
+        //       property with the full text ANYWHERE :(
+        
         tweets.append(contentsOf: rawSet.map {
             TweetData(
                 user: user,
