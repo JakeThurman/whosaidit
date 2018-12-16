@@ -15,6 +15,10 @@ class TweetRepo {
     let loader: TweetLoader
     var minIdSeen: Int64? = nil
     
+    // This listener is used when there are no available tweets
+    //  ready when trying to call getNext. The nextTweetListener
+    //  is automatically fired when the data is ready so we can
+    //  continue the game ASAP
     var nextTweetListener: ((TweetData) -> ())? = nil
     
     var tweets: [TweetData] {
@@ -31,6 +35,12 @@ class TweetRepo {
                 }
             }
         }
+    }
+    
+    // Triggered when a username is changed
+    func clearCache() {
+        self.tweets.removeAll()
+        self.minIdSeen = nil
     }
     
     private init(loader: TweetLoader) {

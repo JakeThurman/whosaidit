@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TwitterKit
 
 class ChangeSettingVC: UIViewController, UITextFieldDelegate {
     
@@ -17,7 +18,14 @@ class ChangeSettingVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var changeSettingNavBar: UINavigationItem!
     
     @IBAction func leavingView(_ sender: Any) {
-        //Save setting change to SettingsRepo
+        // TODO: This function isn't called????
+        
+        do {
+            try SettingsRepo.instance.setSettingValue(named: settingName, to: settingField.text ?? settingValue)
+        }
+        catch {
+            print("Setting \"\(settingName)\" failed to save :(")
+        }
     }
     
     @IBAction func touchNameField(_ sender: Any) {
@@ -28,7 +36,6 @@ class ChangeSettingVC: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         settingField.resignFirstResponder()
-        settingValue = settingField.text!
         return true
     }
 

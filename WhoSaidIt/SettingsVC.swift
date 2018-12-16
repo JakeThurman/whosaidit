@@ -14,7 +14,8 @@ class SettingsVC: UITableViewController {
     var row = 0
     
     @IBAction func unwindSaveSettings(segue: UIStoryboardSegue){
-        
+        // We don't have many rows, just reload them
+        tableView.reloadData()
     }
 
     override func viewDidLoad() {
