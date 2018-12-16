@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TwitterKit
 
 class SettingsVC: UITableViewController {
     let repo = SettingsRepo.instance
@@ -23,11 +24,45 @@ class SettingsVC: UITableViewController {
         
         updateSelectedOption()
         
+        loadAllImages()
+        
         repo.addObserver(self, forKeyPath: "data", options: .new, context: nil)
     }
 
     deinit {
         repo.removeObserver(self, forKeyPath: "data")
+    }
+    
+    func loadAllImages() {
+        let api = TweetLoader()
+        
+        let allNames = SettingsRepo.options.enumerated().flatMap {[
+            (index: $0.offset, username: $0.element.0),
+            (index: $0.offset, username: $0.element.1)
+        ]}
+        
+        for pair in allNames {
+            api.getProfilePhotoURL(username: pair.username,
+                onError: { err in print(err) },
+                onSuccess: { urlStr in
+                    // TODO: load image @ url on BACKGROUND THREAD
+                    // Also todo: we should cache these images locally because we can only request
+                    //            them a few times
+                    
+                    do {
+                        if let url = URL(string: urlStr) {
+                            let data = try Data(contentsOf: url)
+                            self.imageMap[pair.username] = UIImage(data: data)
+                            
+                            // Tell the table cell to update
+                            self.tableView.reloadRows(at: [IndexPath(row: pair.index, section: 0)], with: .none)
+                        }
+                    }
+                    catch {
+                        print("Failed to load image at \(urlStr) for \(pair.username)")
+                    }
+                })
+        }
     }
     
     func updateSelectedOption() {

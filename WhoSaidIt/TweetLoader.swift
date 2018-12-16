@@ -23,8 +23,43 @@ class TweetLoader : NSObject, URLSessionDelegate {
         super.init()
     }
     
+    func getProfilePhotoURL(username: String, onError: @escaping (Any) -> Void, onSuccess: @escaping (String) -> Void) {
+        // Cleanup the username given
+        let username = username.replacingOccurrences(of: "@", with: "")
+        
+        // Grab the basic url we want to load
+        let urlString = "https://api.twitter.com/1.1/users/show.json"
+        
+        let params = ["screen_name": username]
+        
+        var clientError : NSError?
+        let request = client.urlRequest(withMethod: "GET", urlString: urlString, parameters: params, error: &clientError)
+        
+        client.sendTwitterRequest(request) { (response, data, connectionError) -> Void in
+            if let connectionError = connectionError {
+                onError("Error: \(connectionError)")
+                return
+            }
+            
+            do {
+                let obj = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: Any]
+                
+                guard let url = obj?["profile_image_url_https"] as? String else {
+                    onError(obj!)
+                    return
+                }
+                
+                
+                // Guess what? No errors!
+                onSuccess(url)
+            } catch let jsonError as NSError {
+                onError(jsonError.localizedDescription)
+            }
+        }
+    }
+    
     func loadNewTweets(username: String, maxId: Int64?, onError: @escaping (Any) -> Void, onSuccess: @escaping ([[String: Any]]) -> Void) {
-        // Clanup the username given
+        // Cleanup the username given
         let username = username.replacingOccurrences(of: "@", with: "")
         
         // Ignore duplicate requests for the same user
