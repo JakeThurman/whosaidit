@@ -1,0 +1,108 @@
+
+/* Class = "UILabel"; text = "numInc"; ObjectID = "2IE-dg-9np"; */
+"2IE-dg-9np.text" = "numInc";
+
+/* Class = "UILabel"; text = "THis isjdidj aid jaopd jspod sja dopjs dops djasopd jasop djasd"; ObjectID = "2IY-s8-h8F"; */
+"2IY-s8-h8F.text" = "THis isjdidj aid jaopd jspod sja dopjs dops djasopd jasop djasd";
+
+/* Class = "UINavigationItem"; title = "Leaderboard"; ObjectID = "30e-n0-zWl"; */
+"30e-n0-zWl.title" = "Leaderboard";
+
+/* Class = "UIButton"; normalTitle = "START"; ObjectID = "3IS-js-I4h"; */
+"3IS-js-I4h.normalTitle" = "START";
+
+/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "4cY-R8-QOC"; */
+"4cY-R8-QOC.title" = "Settings";
+
+/* Class = "UILabel"; text = "Correct:"; ObjectID = "5Gl-oF-VGi"; */
+"5Gl-oF-VGi.text" = "Correct:";
+
+/* Class = "UITabBarItem"; title = "Leaderboard"; ObjectID = "6bx-us-bA5"; */
+"6bx-us-bA5.title" = "Leaderboard";
+
+/* Class = "UILabel"; text = "Skips:"; ObjectID = "6vi-Ku-avg"; */
+"6vi-Ku-avg.text" = "Skips:";
+
+/* Class = "UIViewController"; title = "End Game VC"; ObjectID = "7Fe-eo-dX9"; */
+"7Fe-eo-dX9.title" = "End Game VC";
+
+/* Class = "UITabBarItem"; title = "Leaderboard"; ObjectID = "7dC-g7-fum"; */
+"7dC-g7-fum.title" = "Leaderboard";
+
+/* Class = "UILabel"; text = "Name:"; ObjectID = "8PA-qL-66n"; */
+"8PA-qL-66n.text" = "Name:";
+
+/* Class = "UILabel"; text = "Score: 0"; ObjectID = "HAL-Rq-z1D"; */
+"HAL-Rq-z1D.text" = "Score: 0";
+
+/* Class = "UINavigationController"; title = "Leaderboard"; ObjectID = "Ieb-r2-jEH"; */
+"Ieb-r2-jEH.title" = "Leaderboard";
+
+/* Class = "UILabel"; text = "Incorrect:"; ObjectID = "Ki5-QG-tz0"; */
+"Ki5-QG-tz0.text" = "Incorrect:";
+
+/* Class = "UIButton"; normalTitle = "✕"; ObjectID = "Li7-6u-kDY"; */
+"Li7-6u-kDY.normalTitle" = "✕";
+
+/* Class = "UILabel"; text = "TIME'S UP!"; ObjectID = "NTU-2J-WpT"; */
+"NTU-2J-WpT.text" = "TIME'S UP!";
+
+/* Class = "UILabel"; text = "scorePts"; ObjectID = "QGE-kU-v7g"; */
+"QGE-kU-v7g.text" = "scorePts";
+
+/* Class = "UILabel"; text = "Local Rank:"; ObjectID = "ST1-3N-yGu"; */
+"ST1-3N-yGu.text" = "Local Rank:";
+
+/* Class = "UILabel"; text = "60 seconds"; ObjectID = "WXy-xR-C5z"; */
+"WXy-xR-C5z.text" = "60 seconds";
+
+/* Class = "UILabel"; text = "numSkips"; ObjectID = "YFJ-3o-8Vf"; */
+"YFJ-3o-8Vf.text" = "numSkips";
+
+/* Class = "UILabel"; text = "Score:"; ObjectID = "bN7-vw-9Kh"; */
+"bN7-vw-9Kh.text" = "Score:";
+
+/* Class = "UILabel"; text = "@cnn VS @theonion"; ObjectID = "cC9-5G-Hj9"; */
+"cC9-5G-Hj9.text" = "@cnn VS @theonion";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "cfH-7V-tU0"; */
+"cfH-7V-tU0.text" = "Detail";
+
+/* Class = "UILabel"; text = "overallRank"; ObjectID = "ckc-5j-g5u"; */
+"ckc-5j-g5u.text" = "overallRank";
+
+/* Class = "UIButton"; normalTitle = "SKIP"; ObjectID = "i2V-81-GiX"; */
+"i2V-81-GiX.normalTitle" = "SKIP";
+
+/* Class = "UILabel"; text = "Global Rank:"; ObjectID = "jdp-gv-ISY"; */
+"jdp-gv-ISY.text" = "Global Rank:";
+
+/* Class = "UIButton"; normalTitle = "@theonion"; ObjectID = "jsu-Dp-aoa"; */
+"jsu-Dp-aoa.normalTitle" = "@theonion";
+
+/* Class = "UILabel"; text = "WHO SAID:"; ObjectID = "kqD-Zl-It4"; */
+"kqD-Zl-It4.text" = "WHO SAID:";
+
+/* Class = "UIButton"; normalTitle = "@cnn"; ObjectID = "nKs-44-w6W"; */
+"nKs-44-w6W.normalTitle" = "@cnn";
+
+/* Class = "UILabel"; text = "localRank"; ObjectID = "nRw-bl-OK2"; */
+"nRw-bl-OK2.text" = "localRank";
+
+/* Class = "UITabBarItem"; title = "Game"; ObjectID = "q9R-jt-aQw"; */
+"q9R-jt-aQw.title" = "Game";
+
+/* Class = "UILabel"; text = "numCor"; ObjectID = "unb-7w-ToW"; */
+"unb-7w-ToW.text" = "numCor";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "vJx-Up-B9R"; */
+"vJx-Up-B9R.text" = "Title";
+
+/* Class = "UIButton"; normalTitle = "Play Again"; ObjectID = "wHc-sp-haU"; */
+"wHc-sp-haU.normalTitle" = "Play Again";
+
+/* Class = "UIButton"; normalTitle = "Quit"; ObjectID = "xPh-ra-37w"; */
+"xPh-ra-37w.normalTitle" = "Quit";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "zdc-DD-hh1"; */
+"zdc-DD-hh1.title" = "Settings";

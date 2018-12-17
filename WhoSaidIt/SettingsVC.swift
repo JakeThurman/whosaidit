@@ -93,6 +93,10 @@ class SettingsVC: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Tweets By:"
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let oldSelectedOption = selectedOption
         selectedOption = indexPath.row

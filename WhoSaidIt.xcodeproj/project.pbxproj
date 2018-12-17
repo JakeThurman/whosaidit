@@ -80,6 +80,7 @@
 		A91BEA06219A91F400E4BA67 /* TweetLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetLoader.swift; sourceTree = "<group>"; };
 		A91BEA10219B5E4000E4BA67 /* Twitter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Twitter-Bridging-Header.h"; sourceTree = "<group>"; };
 		A9DAF25C21C6DB900010E0F4 /* TwitterOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterOptionCell.swift; sourceTree = "<group>"; };
+		A9DAF26321C750FB0010E0F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		AE5E1C0563729276CD50732E /* Pods-WhoSaidIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoSaidIt.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhoSaidIt/Pods-WhoSaidIt.release.xcconfig"; sourceTree = "<group>"; };
 		F8DA92C9121D3648FFF5C358 /* Pods-WhoSaidIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoSaidIt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhoSaidIt/Pods-WhoSaidIt.debug.xcconfig"; sourceTree = "<group>"; };
 		FF12304CE0E9DA752F48EC4A /* Pods-WhoSaidItUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoSaidItUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhoSaidItUITests/Pods-WhoSaidItUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -505,6 +506,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				A91BE9C52198F70700E4BA67 /* Base */,
+				A9DAF26321C750FB0010E0F4 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
