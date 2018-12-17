@@ -9,18 +9,18 @@
 import UIKit
 import TwitterKit
 
-class SettingsVC: UITableViewController {
+class SettingsVC: UITableViewController, URLSessionDelegate, URLSessionDownloadDelegate {
     let repo = SettingsRepo.instance
     var selectedOption: Int = 0
     var imageMap = [String:UIImage]()
+    var downloadTaskIdToMetadata = [Int:(String, Int)]()
+    var urlSession: URLSession! = nil
     
-    @IBAction func unwindSaveSettings(segue: UIStoryboardSegue){
-        // We don't have many rows, just reload them
-        tableView.reloadData()
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let config = URLSessionConfiguration.default
+        urlSession = URLSession(configuration: config, delegate: self, delegateQueue: nil)
         
         updateSelectedOption()
         
@@ -45,23 +45,37 @@ class SettingsVC: UITableViewController {
             api.getProfilePhotoURL(username: pair.username,
                 onError: { err in print(err) },
                 onSuccess: { urlStr in
-                    // TODO: load image @ url on BACKGROUND THREAD
-                    // Also todo: we should cache these images locally because we can only request
-                    //            them a few times
-                    
-                    do {
-                        if let url = URL(string: urlStr) {
-                            let data = try Data(contentsOf: url)
-                            self.imageMap[pair.username] = UIImage(data: data)
-                            
-                            // Tell the table cell to update
-                            self.tableView.reloadRows(at: [IndexPath(row: pair.index, section: 0)], with: .none)
-                        }
-                    }
-                    catch {
-                        print("Failed to load image at \(urlStr) for \(pair.username)")
-                    }
+                    self.sendRequestFor(urlStr: urlStr, rowToReload: pair.index, username: pair.username)
                 })
+        }
+    }
+    
+    func sendRequestFor(urlStr: String, rowToReload: Int, username: String) {
+        guard let url = URL(string: urlStr) else {
+            print("Attempt to load invalid URL: \(urlStr)")
+            return
+        }
+    
+        let downloadTask = self.urlSession.downloadTask(with: url)
+    
+        let metadata = (username, rowToReload)
+        downloadTaskIdToMetadata[downloadTask.taskIdentifier] = metadata
+    }
+    
+    // Read in the image. It has been loaded in the background.
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+        let (username, rowToReload) = downloadTaskIdToMetadata[downloadTask.taskIdentifier]!
+        
+        do {
+            let data = try Data(contentsOf: location)
+            self.imageMap[username] = UIImage(data: data)
+        }
+        catch {
+            print("Failed to load picture for \(username)")
+        }
+        
+        OperationQueue.main.addOperation {
+            self.tableView.reloadRows(at: [IndexPath(row: rowToReload, section: 0)], with: .none)
         }
     }
     
