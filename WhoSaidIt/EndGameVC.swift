@@ -52,14 +52,15 @@ class EndGameVC: UIViewController, UITextFieldDelegate {
         //self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(textFieldShouldReturn(_:))))
         
         //Set name to the most recent name used if it exists
-        if let prevName = (leaderboard.data.sorted(by: {$0.date > $1.date}).first?.name){
+        let sortedLeaderboard = leaderboard.data.values.flatMap({ $0 }).sorted(by: {$0.date > $1.date})
+        if let prevName = sortedLeaderboard.first?.name {
             if prevName != "User"{
                 name = prevName
             }
         }
         
         //Calculate the rank of the score
-        localRank = (leaderboard.data.filter({$0.score > scorePts}).count) + 1
+        localRank = (leaderboard.data[SettingsRepo.instance.selectedOptionsIndex]!.filter({$0.score > scorePts}).count) + 1
         
         nameField.text = name
         numCorrectLbl.text = String(numCorrect)
@@ -70,12 +71,8 @@ class EndGameVC: UIViewController, UITextFieldDelegate {
     }
     
     func addToLeaderboard(){
-        if name.isEmpty {
-            leaderboard.addRanking(localRank: localRank, score: scorePts, name: "User", date: Date())
-        }
-        else{
-            leaderboard.addRanking(localRank: localRank, score: scorePts, name: name, date: Date())
-        }
+        let username = name.isEmpty ? "User" : name
+        leaderboard.addRanking(ranking: Ranking(localRank: localRank, score: scorePts, name: username, date: Date().description, twitterPair: SettingsRepo.instance.selectedOptionsIndex))
     }
     
     

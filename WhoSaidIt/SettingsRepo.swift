@@ -14,9 +14,11 @@ enum MyError: Error {
 
 class SettingsRepo: NSObject {
     static let options = [
-        ("@cnn", "@theonion"),
+        ("@CNN", "@TheOnion"),
+        ("@realDonaldTrump", "@kanyewest"),
         ("@jake_thurman", "@IrkedIndeed"),
-        ("@yeevahon", "@GYurisic")
+        ("@yeevahon", "@ssbmPolish"),
+        ("@WHAB_eSports", "@CH_eSports")
     ]
     
     static let instance = SettingsRepo()

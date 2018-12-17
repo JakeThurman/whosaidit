@@ -28,18 +28,24 @@ class LeaderboardVC: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return SettingsRepo.options.count
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let pair = SettingsRepo.options[section]
+        return "\(pair.0) VS \(pair.1)"
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return repo.data.count
+        return repo.data[section]!.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "scoreCell", for: indexPath)
-
-        cell.textLabel?.text = "\(indexPath.row + 1). \(repo.data[indexPath.row].name)"
-        cell.detailTextLabel?.text = String(repo.data[indexPath.row].score)
+        let data = repo.data[indexPath.section]![indexPath.row]
+        
+        cell.textLabel?.text = "#\(indexPath.row + 1): \(data.name)"
+        cell.detailTextLabel?.text = String(data.score)
 
         return cell
     }

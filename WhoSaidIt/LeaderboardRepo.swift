@@ -12,11 +12,14 @@ class LeaderboardRepo: NSObject {
     static let instance = LeaderboardRepo()
     
     let fileUrl: URL
-    @objc dynamic var data: [Ranking]
+    @objc dynamic var data = [Int:[Ranking]]()
     
     // Load rankings in from file, if it exists
     private override init() {
-        data = [Ranking]()
+        // Initialize the data object
+        for i in 0...SettingsRepo.options.count {
+            data[i] = []
+        }
         
         // Save file url
         let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
@@ -44,13 +47,16 @@ class LeaderboardRepo: NSObject {
                         }
                     }
                     
-                    data.append(ranking)
+                    data[ranking.twitterPair]!.append(ranking)
                 }
                                 
                 // Sort so highest score is first and ties go to the earlier date
-                data.sort {
-                    return $0.score > $1.score || ($0.score == $1.score && $0.date < $1.date)
+                for var set in data.values {
+                    set.sort {
+                        return $0.score > $1.score || ($0.score == $1.score && $0.date < $1.date)
+                    }
                 }
+                
             } catch {
                 print("Failed to read file")
             }
@@ -64,6 +70,8 @@ class LeaderboardRepo: NSObject {
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         // Create array of dictionaries from the array of rankings so it can be written as JSON
         var jsonData = [[String: Any]]()
+        
+        let data = self.data.values.flatMap { $0 }
         for ranking in data {
             jsonData.append(ranking.toDictionary())
         }
@@ -76,9 +84,13 @@ class LeaderboardRepo: NSObject {
         }
     }
     
-    func addRanking(localRank: Int, score: Int, name: String, date: Date){
-        let r = Ranking(localRank: localRank, score: score, name: name, date: date.description)
-        data.insert(r, at: localRank - 1 )
+    func addRanking(ranking: Ranking){
+        if var arr = data[ranking.twitterPair] {
+            arr.insert(ranking, at: ranking.localRank - 1 )
+        }
+        else {
+            data[ranking.twitterPair] = [ranking]
+        }
     }
     
     // Remove self as observer when closing
