@@ -18,14 +18,12 @@ class EndGameVC: UIViewController, UITextFieldDelegate {
     var numSkips = 0
     var scorePts = 0
     var localRank = 0
-    var overallRank = 0
     
     @IBOutlet weak var numCorrectLbl: UILabel!
     @IBOutlet weak var numIncorrectLbl: UILabel!
     @IBOutlet weak var numSkipsLbl: UILabel!
     @IBOutlet weak var scorePtsLbl: UILabel!
     @IBOutlet weak var localRankLbl: UILabel!
-    @IBOutlet weak var overallRankLbl: UILabel!
     @IBOutlet weak var nameField: UITextField!
     
     
@@ -68,8 +66,7 @@ class EndGameVC: UIViewController, UITextFieldDelegate {
         numIncorrectLbl.text = String(numIncorrect)
         numSkipsLbl.text = String(numSkips)
         scorePtsLbl.text = String(scorePts)
-        localRankLbl.text = String(localRank)
-        overallRankLbl.text = "?" //String(overallRank)
+        localRankLbl.text = "#\(localRank)"
     }
     
     func addToLeaderboard(){

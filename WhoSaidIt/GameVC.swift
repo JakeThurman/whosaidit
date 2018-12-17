@@ -128,7 +128,6 @@ class GameVC: UIViewController {
             child.numSkips = self.numSkips
             child.scorePts = self.scorePts
             child.localRank = self.localRank
-            child.overallRank = self.overallRank
         }
     }
 
