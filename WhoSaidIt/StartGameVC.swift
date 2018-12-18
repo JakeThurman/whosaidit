@@ -10,8 +10,13 @@ import UIKit
 
 class StartGameVC: UIViewController {
     
+    let settings = SettingsRepo.instance
+    
     var shouldStartGame = false
-
+    
+    @IBOutlet weak var twitterOneLbl: UILabel!
+    @IBOutlet weak var twitterTwoLbl: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -21,6 +26,9 @@ class StartGameVC: UIViewController {
         if shouldStartGame {
             performSegue(withIdentifier: "gameSegue", sender: nil)
         }
+        
+        twitterOneLbl.text = SettingsRepo.instance.twitterOne
+        twitterTwoLbl.text = SettingsRepo.instance.twitterTwo
     }
     
     @IBAction func unwindToStartGame(segue: UIStoryboardSegue) {
