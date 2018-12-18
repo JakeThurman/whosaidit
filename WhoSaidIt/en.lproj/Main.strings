@@ -101,8 +101,8 @@
 /* Class = "UIButton"; normalTitle = "Play Again"; ObjectID = "wHc-sp-haU"; */
 "wHc-sp-haU.normalTitle" = "Play Again";
 
-/* Class = "UIButton"; normalTitle = "Quit"; ObjectID = "xPh-ra-37w"; */
-"xPh-ra-37w.normalTitle" = "Quit";
+/* Class = "UIButton"; normalTitle = "Done"; ObjectID = "xPh-ra-37w"; */
+"xPh-ra-37w.normalTitle" = "Done";
 
 /* Class = "UINavigationItem"; title = "Settings"; ObjectID = "zdc-DD-hh1"; */
 "zdc-DD-hh1.title" = "Settings";

@@ -87,6 +87,7 @@ class LeaderboardRepo: NSObject {
     func addRanking(ranking: Ranking){
         if var arr = data[ranking.twitterPair] {
             arr.insert(ranking, at: ranking.localRank - 1 )
+            data[ranking.twitterPair] = arr
         }
         else {
             data[ranking.twitterPair] = [ranking]

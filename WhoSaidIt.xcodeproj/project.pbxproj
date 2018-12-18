@@ -161,6 +161,7 @@
 				A91BE9C02198F70700E4BA67 /* AppDelegate.swift */,
 				A91BE9F82198FE1800E4BA67 /* StartGameVC.swift */,
 				A91BE9F62198FB4300E4BA67 /* GameVC.swift */,
+				8460D8D1219BE05A005B8622 /* EndGameVC.swift */,
 				A91BE9F42198FB0C00E4BA67 /* LeaderboardVC.swift */,
 				A91BE9F02198FA8900E4BA67 /* SettingsVC.swift */,
 				A9DAF25C21C6DB900010E0F4 /* TwitterOptionCell.swift */,
@@ -174,7 +175,6 @@
 				A91BE9FC2199E2E800E4BA67 /* Twitter_Logo_Blue.png */,
 				A5783280219BA43E0096CCE8 /* LeaderboardRepo.swift */,
 				A5783282219BABBA0096CCE8 /* Ranking.swift */,
-				8460D8D1219BE05A005B8622 /* EndGameVC.swift */,
 				A5783284219C7E8B0096CCE8 /* Setting.swift */,
 				A5783286219C802E0096CCE8 /* settings.json */,
 			);

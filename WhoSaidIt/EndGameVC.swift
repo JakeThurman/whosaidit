@@ -11,8 +11,8 @@ import UIKit
 class EndGameVC: UIViewController, UITextFieldDelegate {
     
     let leaderboard = LeaderboardRepo.instance
+    let settings = SettingsRepo.instance
     
-    var name = ""
     var numCorrect = 0
     var numIncorrect = 0
     var numSkips = 0
@@ -38,7 +38,6 @@ class EndGameVC: UIViewController, UITextFieldDelegate {
     //Dismiss keyboard when return button is pressed
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         nameField.resignFirstResponder()
-        name = nameField.text!
         return true
     }
     
@@ -55,14 +54,13 @@ class EndGameVC: UIViewController, UITextFieldDelegate {
         let sortedLeaderboard = leaderboard.data.values.flatMap({ $0 }).sorted(by: {$0.date > $1.date})
         if let prevName = sortedLeaderboard.first?.name {
             if prevName != "User"{
-                name = prevName
+                nameField.text = prevName
             }
         }
         
         //Calculate the rank of the score
-        localRank = (leaderboard.data[SettingsRepo.instance.selectedOptionsIndex]!.filter({$0.score > scorePts}).count) + 1
+        localRank = (leaderboard.data[settings.selectedOptionsIndex]!.filter({$0.score > scorePts}).count) + 1
         
-        nameField.text = name
         numCorrectLbl.text = String(numCorrect)
         numIncorrectLbl.text = String(numIncorrect)
         numSkipsLbl.text = String(numSkips)
@@ -71,8 +69,8 @@ class EndGameVC: UIViewController, UITextFieldDelegate {
     }
     
     func addToLeaderboard(){
-        let username = name.isEmpty ? "User" : name
-        leaderboard.addRanking(ranking: Ranking(localRank: localRank, score: scorePts, name: username, date: Date().description, twitterPair: SettingsRepo.instance.selectedOptionsIndex))
+        let username = nameField.text!.isEmpty ? "User" : nameField.text!
+        leaderboard.addRanking(ranking: Ranking(localRank: localRank, score: scorePts, name: username, date: Date().description, twitterPair: settings.selectedOptionsIndex))
     }
     
     
