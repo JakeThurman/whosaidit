@@ -85,8 +85,11 @@ class LeaderboardRepo: NSObject {
     }
     
     func addRanking(ranking: Ranking){
-        if var arr = data[ranking.twitterPair] {
+        if ranking.localRank <= 10, var arr = data[ranking.twitterPair] {
             arr.insert(ranking, at: ranking.localRank - 1 )
+            if arr.count > 10 {
+                arr.removeLast(arr.count - 10)
+            }
             data[ranking.twitterPair] = arr
         }
         else {
