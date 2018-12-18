@@ -22,6 +22,17 @@ class TwitterOptionCell: UITableViewCell {
         
         twitter1Image.image = twitterOne.1
         twitter2Image.image = twitterTwo.1
+        
+        makeRounded(image: twitter1Image)
+        makeRounded(image: twitter2Image)
+    }
+    
+    private func makeRounded(image: UIImageView) {
+        image.layer.borderWidth = 1
+        image.layer.masksToBounds = false
+        image.layer.borderColor = UIColor.lightGray.cgColor
+        image.layer.cornerRadius = image.frame.height/2 //This will change with corners of image and height/2 will make this circle shape
+        image.clipsToBounds = true
     }
     
     override func awakeFromNib() {
