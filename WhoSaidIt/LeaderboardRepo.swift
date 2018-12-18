@@ -17,7 +17,7 @@ class LeaderboardRepo: NSObject {
     // Load rankings in from file, if it exists
     private override init() {
         // Initialize the data object
-        for i in 0...SettingsRepo.options.count {
+        for i in 0...SettingsRepo.instance.options.count {
             data[i] = []
         }
         

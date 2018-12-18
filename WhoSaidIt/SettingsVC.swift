@@ -18,23 +18,40 @@ class SettingsVC: UITableViewController, URLSessionDelegate {
     
     @IBAction func returnToSettings(segue: UIStoryboardSegue){
         if let sourceVC = segue.source as? CustomSettingVC  {
+            let name1Maybe = sourceVC.twitterOneField.text?.replacingOccurrences(of: "@", with: "")
+            let name2Maybe = sourceVC.twitterTwoField.text?.replacingOccurrences(of: "@", with: "")
             
-            let name1 = sourceVC.twitterOneField.text ?? "???"
-            let name2 = sourceVC.twitterTwoField.text ?? "???"
-            
+            guard let name1 = name1Maybe else {
+                return
+            }
+            guard let name2 = name2Maybe else {
+                return
+            }
+            guard !name1.replacingOccurrences(of: " ", with: "").isEmpty else {
+                return
+            }
+            guard !name2.replacingOccurrences(of: " ", with: "").isEmpty else {
+                return
+            }
             // Post changes to the settings repo
-            repo.changeCustomTwitters(name1: name1, name2: name2)
-
+            repo.pushCustomTwitterPair(name1: "@" + name1, name2: "@" + name2)
+            
+            // Select it
+            try! SettingsRepo.instance.setSettingValue(
+                named: "selected_option",
+                to: repo.options.count-1)
+            selectedOption = repo.options.count - 1
+            
             // Load profile pictures
             if imageMap[name1] == nil {
-                sendImageFor(rowToReload: SettingsRepo.options.count, username: name1.lowercased())
+                sendImageFor(rowToReload: repo.options.count-1, username: name1.lowercased())
             }
             if imageMap[name2] == nil {
-                sendImageFor(rowToReload: SettingsRepo.options.count, username: name2.lowercased())
+                sendImageFor(rowToReload: repo.options.count-1, username: name2.lowercased())
             }
             
             // Reload right away so we can see the updated text
-            tableView.reloadRows(at: [IndexPath(row: SettingsRepo.options.count, section: 0)], with: .automatic)
+            tableView.reloadData()
         }
     }
     
@@ -56,7 +73,7 @@ class SettingsVC: UITableViewController, URLSessionDelegate {
     }
     
     func loadAllImages() {        
-        let allNames = SettingsRepo.options.enumerated().flatMap {[
+        let allNames = repo.options.enumerated().flatMap {[
             (index: $0.offset, username: $0.element.0.lowercased()),
             (index: $0.offset, username: $0.element.1.lowercased())
         ]}
@@ -113,34 +130,27 @@ class SettingsVC: UITableViewController, URLSessionDelegate {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return SettingsRepo.options.count + 1
+        return repo.options.count + 1
     }
     
     func maybeGetImage(user: String) -> UIImage? {
         let key = user.lowercased().replacingOccurrences(of: "@", with: "")
-        print(key, imageMap)
         return imageMap[key]
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == SettingsRepo.options.count {
-            let option = repo.customTwitters
-            let isSelected = indexPath.row == selectedOption
-            let cell = tableView.dequeueReusableCell(withIdentifier: "customSettingCell", for: indexPath) as! TwitterOptionCell
-            
-            cell.render(isSelected: isSelected, isCustom: true,
-                        twitterOne: (option[0], maybeGetImage(user: option[0])),
-                        twitterTwo: (option[1], maybeGetImage(user: option[1])))
-            return cell
+        if indexPath.row == repo.options.count {
+            return tableView.dequeueReusableCell(withIdentifier: "customSettingCell", for: indexPath)
         }
         else{
-            let option = SettingsRepo.options[indexPath.row]
+            let option = repo.options[indexPath.row]
             let isSelected = indexPath.row == selectedOption
             let cell = tableView.dequeueReusableCell(withIdentifier: "settingCell", for: indexPath) as! TwitterOptionCell
             
-            cell.render(isSelected: isSelected, isCustom: false,
+            cell.render(isSelected: isSelected,
                         twitterOne: (option.0, maybeGetImage(user: option.0)),
                         twitterTwo: (option.1, maybeGetImage(user: option.1)))
+            
             return cell
         }
     }
@@ -150,6 +160,10 @@ class SettingsVC: UITableViewController, URLSessionDelegate {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (indexPath.row == repo.options.count) {
+            return
+        }
+        
         let oldSelectedOption = selectedOption
         selectedOption = indexPath.row
         
@@ -164,24 +178,5 @@ class SettingsVC: UITableViewController, URLSessionDelegate {
         
         // Reload both rows
         tableView.reloadRows(at: [indexPath, IndexPath(row: oldSelectedOption, section: 0)], with: .none)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let child = segue.destination as! CustomSettingVC
-        
-        var name1 = repo.customTwitters[0]
-        var name2 = repo.customTwitters[1]
-        
-        //Wipe out defaults
-        if name1 == "@???"{
-            name1 = "@"
-        }
-        if name2 == "@???"{
-            name2 = "@"
-        }
-        
-        //Drop the @ symbol
-        child.twitterOne = String(name1.dropFirst())
-        child.twitterTwo = String(name2.dropFirst())
     }
 }

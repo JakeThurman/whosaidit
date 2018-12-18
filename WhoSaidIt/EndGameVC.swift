@@ -63,7 +63,7 @@ class EndGameVC: UIViewController, UITextFieldDelegate {
         }
         
         //Calculate the rank of the score
-        localRank = (leaderboard.data[settings.selectedOptionsIndex]!.filter({$0.score > scorePts}).count) + 1
+        localRank = ((leaderboard.data[settings.selectedOptionsIndex] ?? []).filter({$0.score > scorePts}).count) + 1
         
         numCorrectLbl.text = String(numCorrect)
         numIncorrectLbl.text = String(numIncorrect)

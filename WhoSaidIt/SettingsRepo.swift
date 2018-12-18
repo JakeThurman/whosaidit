@@ -13,14 +13,22 @@ enum MyError: Error {
 }
 
 class SettingsRepo: NSObject {
-    static let options = [
-        ("@CNN", "@TheOnion"),
-        ("@realDonaldTrump", "@kanyewest"),
-        ("@jake_thurman", "@IrkedIndeed"),
-        ("@yeevahon", "@ssbmPolish"),
-        ("@WHAB_eSports", "@CH_eSports"),
-        ("@TheBabylonBee", "@TheOnion"),
-    ]
+    var options: [(String, String)] { get {
+        let customRaw = try! getSettingValue(named: "custom_twitters") as! [[String]]
+        var custom = [(String, String)]()
+        for raw in customRaw {
+            custom.append((raw[0], raw[1]))
+        }
+        
+        return [
+            ("@CNN", "@TheOnion"),
+            ("@realDonaldTrump", "@kanyewest"),
+            ("@jake_thurman", "@IrkedIndeed"),
+            ("@yeevahon", "@ssbmPolish"),
+            ("@WHAB_eSports", "@CH_eSports"),
+            ("@TheBabylonBee", "@TheOnion"),
+        ] + custom
+    }}
     
     static let instance = SettingsRepo()
     
@@ -28,18 +36,8 @@ class SettingsRepo: NSObject {
     @objc dynamic var data: [Setting]
     
     var selectedOptionsIndex: Int { get { return try! getSettingValue(named: "selected_option") as! Int } }
-    var customTwitters: [String] { get { return try! getSettingValue(named: "custom_twitters") as! [String] } }
-    var twitterOne: String { get { return getOption(selectedOptionsIndex).0 } }
-    var twitterTwo: String { get { return getOption(selectedOptionsIndex).1 } }
-
-    func getOption(_ index: Int) -> (String, String) {
-        if SettingsRepo.options.count == index {
-            let ct = customTwitters
-            return (ct[0], ct[1])
-        }
-        
-        return SettingsRepo.options[index]
-    }
+    var twitterOne: String { get { return options[selectedOptionsIndex].0 } }
+    var twitterTwo: String { get { return options[selectedOptionsIndex].1 } }
     
     private override init() {
         data = [Setting]()
@@ -139,7 +137,9 @@ class SettingsRepo: NSObject {
         throw MyError.badSettingNameError("'\(settingName)' is not a valid setting")
     }
     
-    func changeCustomTwitters(name1: String, name2: String) {
-        try! setSettingValue(named: "custom_twitters", to: ["@\(name1)","@\(name2)"])
+    func pushCustomTwitterPair(name1: String, name2: String) {
+        var toUpdate = try! getSettingValue(named: "custom_twitters") as! [[String]]
+        toUpdate.append([name1, name2])
+        try! setSettingValue(named: "custom_twitters", to: toUpdate)
     }
 }

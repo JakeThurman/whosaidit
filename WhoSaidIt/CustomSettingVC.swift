@@ -12,11 +12,7 @@ class CustomSettingVC: UIViewController, UITextFieldDelegate {
     
     let settings = SettingsRepo.instance
     
-    var twitterOne = ""
-    var twitterTwo = ""
-    
     @IBOutlet weak var twitterOneField: UITextField!
-    
     @IBOutlet weak var twitterTwoField: UITextField!
     
     @IBAction func backgroundTap(_ sender: Any?) {
@@ -41,9 +37,5 @@ class CustomSettingVC: UIViewController, UITextFieldDelegate {
         //Manually declare the delegate of the text fields - needed for textFieldShouldReturn
         self.twitterOneField.delegate = self
         self.twitterTwoField.delegate = self
-
-        twitterOneField.text = twitterOne
-        twitterTwoField.text = twitterTwo
     }
-
 }

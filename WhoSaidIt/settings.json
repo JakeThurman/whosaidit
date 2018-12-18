@@ -6,7 +6,7 @@
     },
     {
         "name": "custom_twitters",
-        "value": ["@???", "@???"],
+        "value": [],
         "order": 1
     }
 ]
