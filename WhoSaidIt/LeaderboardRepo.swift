@@ -47,7 +47,7 @@ class LeaderboardRepo: NSObject {
                         }
                     }
                     
-                    data[ranking.twitterPair]!.append(ranking)
+                    data[ranking.twitterPair]?.append(ranking)
                 }
                                 
                 // Sort so highest score is first and ties go to the earlier date

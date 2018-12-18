@@ -29,7 +29,6 @@ class LeaderboardVC: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return SettingsRepo.instance.options.count
-        return SettingsRepo.options.count + 1
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

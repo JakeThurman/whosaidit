@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OVf-ko-BIM">
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OVf-ko-BIM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -538,24 +537,18 @@
                                     <rect key="frame" x="0.0" y="0.0" width="341" height="86.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add +" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVb-XL-Yj7">
-                                            <rect key="frame" x="36" y="28.5" width="64.5" height="30"/>
-                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add +" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVb-XL-Yj7">
+                                            <rect key="frame" x="36" y="27" width="69.5" height="32.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="27"/>
                                             <color key="textColor" red="0.21368260119999999" green="0.60459628809999999" blue="0.20656266130000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USER CHOICE:" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ptk-Y1-oxe">
-                                            <rect key="frame" x="145.5" y="11" width="84.5" height="15.5"/>
-                                            <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
-                                            <nil key="highlightedColor"/>
-                                            <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
-                                        <constraint firstItem="fVb-XL-Yj7" firstAttribute="leading" secondItem="dfA-mE-y2J" secondAttribute="leadingMargin" constant="20" id="CfE-Za-ZLW"/>
-                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="fVb-XL-Yj7" secondAttribute="trailing" id="Rv1-vJ-tWq"/>
-                                        <constraint firstItem="fVb-XL-Yj7" firstAttribute="centerY" secondItem="dfA-mE-y2J" secondAttribute="centerY" id="sGG-8O-snS"/>
+                                        <constraint firstItem="fVb-XL-Yj7" firstAttribute="centerY" secondItem="dfA-mE-y2J" secondAttribute="centerY" id="MCW-Tx-6G7"/>
+                                        <constraint firstItem="fVb-XL-Yj7" firstAttribute="leading" secondItem="dfA-mE-y2J" secondAttribute="leadingMargin" constant="20" id="SoL-Nx-hbk"/>
+                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="fVb-XL-Yj7" secondAttribute="trailing" id="smu-eO-yry"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

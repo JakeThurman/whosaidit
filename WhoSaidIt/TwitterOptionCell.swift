@@ -15,7 +15,6 @@ class TwitterOptionCell: UITableViewCell {
     @IBOutlet weak var vsLabel: UILabel!
     
     func render(isSelected: Bool, twitterOne: (String, UIImage?), twitterTwo: (String, UIImage?)) {
-    func render(isSelected: Bool, isCustom: Bool, twitterOne: (String, UIImage?), twitterTwo: (String, UIImage?)) {
         backgroundColor = isSelected ? #colorLiteral(red: 0, green: 0.6431372549, blue: 0.9764705882, alpha: 1) : UIColor.white
         vsLabel.textColor = isSelected ? UIColor.white : UIColor.black
         
