@@ -3,5 +3,10 @@
         "name": "selected_option",
         "value": 0,
         "order": 0
+    },
+    {
+        "name": "custom_twitters",
+        "value": ["@???", "@???"],
+        "order": 1
     }
 ]

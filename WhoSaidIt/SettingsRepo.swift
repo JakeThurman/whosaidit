@@ -13,14 +13,13 @@ enum MyError: Error {
 }
 
 class SettingsRepo: NSObject {
-    static var options = [
+    static let options = [
         ("@CNN", "@TheOnion"),
         ("@realDonaldTrump", "@kanyewest"),
         ("@jake_thurman", "@IrkedIndeed"),
         ("@yeevahon", "@ssbmPolish"),
         ("@WHAB_eSports", "@CH_eSports"),
         ("@TheBabylonBee", "@TheOnion"),
-        ("@???","@???")
     ]
     
     static let instance = SettingsRepo()
@@ -29,9 +28,19 @@ class SettingsRepo: NSObject {
     @objc dynamic var data: [Setting]
     
     var selectedOptionsIndex: Int { get { return try! getSettingValue(named: "selected_option") as! Int } }
-    var twitterOne: String { get { return SettingsRepo.options[selectedOptionsIndex].0 } }
-    var twitterTwo: String { get { return SettingsRepo.options[selectedOptionsIndex].1 } }
+    var customTwitters: [String] { get { return try! getSettingValue(named: "custom_twitters") as! [String] } }
+    var twitterOne: String { get { return getOption(selectedOptionsIndex).0 } }
+    var twitterTwo: String { get { return getOption(selectedOptionsIndex).1 } }
 
+    func getOption(_ index: Int) -> (String, String) {
+        if SettingsRepo.options.count == index {
+            let ct = customTwitters
+            return (ct[0], ct[1])
+        }
+        
+        return SettingsRepo.options[index]
+    }
+    
     private override init() {
         data = [Setting]()
         let path = Bundle.main.path(forResource: "settings", ofType: "json")
@@ -130,7 +139,7 @@ class SettingsRepo: NSObject {
         throw MyError.badSettingNameError("'\(settingName)' is not a valid setting")
     }
     
-    func changeCustomTwitters(name1: String, name2: String){
-        SettingsRepo.options[SettingsRepo.options.count-1] = ("@\(name1)","@\(name2)")
+    func changeCustomTwitters(name1: String, name2: String) {
+        try! setSettingValue(named: "custom_twitters", to: ["@\(name1)","@\(name2)"])
     }
 }

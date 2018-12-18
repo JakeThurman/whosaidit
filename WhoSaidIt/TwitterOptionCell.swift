@@ -17,14 +17,15 @@ class TwitterOptionCell: UITableViewCell {
     func render(isSelected: Bool, isCustom: Bool, twitterOne: (String, UIImage?), twitterTwo: (String, UIImage?)) {
         backgroundColor = isSelected ? #colorLiteral(red: 0, green: 0.6431372549, blue: 0.9764705882, alpha: 1) : UIColor.white
         vsLabel.textColor = isSelected ? UIColor.white : UIColor.black
-
+        
         if isCustom {
             vsLabel.text = "CUSTOM:\n\(twitterOne.0)\nVS\n\(twitterTwo.0)"
+            accessoryType = .disclosureIndicator
         }
         else{
             vsLabel.text = "\(twitterOne.0)\nVS\n\(twitterTwo.0)"
         }
-        
+                
         twitter1Image.image = twitterOne.1
         twitter2Image.image = twitterTwo.1
         

@@ -19,12 +19,23 @@ class SettingsVC: UITableViewController, URLSessionDelegate {
     @IBAction func returnToSettings(segue: UIStoryboardSegue){
         if let sourceVC = segue.source as? CustomSettingVC  {
             
-            repo.changeCustomTwitters(name1:             sourceVC.twitterOneField.text!
-                , name2:             sourceVC.twitterTwoField.text!)
+            let name1 = sourceVC.twitterOneField.text ?? "???"
+            let name2 = sourceVC.twitterTwoField.text ?? "???"
+            
+            // Post changes to the settings repo
+            repo.changeCustomTwitters(name1: name1, name2: name2)
 
-            //repo.changeCustomTwitters(name1: sourceVC.twitterOne, name2: sourceVC.twitterTwo)
+            // Load profile pictures
+            if imageMap[name1] == nil {
+                sendImageFor(rowToReload: SettingsRepo.options.count, username: name1.lowercased())
+            }
+            if imageMap[name2] == nil {
+                sendImageFor(rowToReload: SettingsRepo.options.count, username: name2.lowercased())
+            }
+            
+            // Reload right away so we can see the updated text
+            tableView.reloadRows(at: [IndexPath(row: SettingsRepo.options.count, section: 0)], with: .automatic)
         }
-        tableView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -46,25 +57,25 @@ class SettingsVC: UITableViewController, URLSessionDelegate {
     
     func loadAllImages() {        
         let allNames = SettingsRepo.options.enumerated().flatMap {[
-            (index: $0.offset, username: $0.element.0),
-            (index: $0.offset, username: $0.element.1)
+            (index: $0.offset, username: $0.element.0.lowercased()),
+            (index: $0.offset, username: $0.element.1.lowercased())
         ]}
         
         for pair in allNames {
-            let username = pair.username.replacingOccurrences(of: "@", with: "")
-            let urlStr = "https://avatars.io/twitter/\(username)/medium"
-            self.sendRequestFor(urlStr: urlStr, rowToReload: pair.index, username: pair.username)
+            if imageMap[pair.username] == nil {
+                sendImageFor(rowToReload: pair.index, username: pair.username)
+            }
         }
     }
     
-    func sendRequestFor(urlStr: String, rowToReload: Int, username: String) {
-        guard let url = URL(string: urlStr) else {
-            print("Attempt to load invalid URL: \(urlStr)")
+    func sendImageFor(rowToReload: Int, username: String) {
+        let username = username.replacingOccurrences(of: "@", with: "")
+        
+        guard let url = URL(string: "https://avatars.io/twitter/\(username)/medium") else {
+            print("Attempt to load invalid url for: username=\"\(username)\"")
             return
         }
         
-        print("Loading image for \(username)")
-    
         let downloadTask = urlSession.downloadTask(with: url) {
             (location, _request, err) in
             
@@ -72,8 +83,6 @@ class SettingsVC: UITableViewController, URLSessionDelegate {
                 print(err as Any)
                 return
             }
-            
-            print("Downloaded url for \(username)")
             
             do {
                 let data = try Data(contentsOf: location)
@@ -104,18 +113,24 @@ class SettingsVC: UITableViewController, URLSessionDelegate {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return SettingsRepo.options.count
+        return SettingsRepo.options.count + 1
+    }
+    
+    func maybeGetImage(user: String) -> UIImage? {
+        let key = user.lowercased().replacingOccurrences(of: "@", with: "")
+        print(key, imageMap)
+        return imageMap[key]
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == SettingsRepo.options.count - 1 {
-            let option = SettingsRepo.options[indexPath.row]
+        if indexPath.row == SettingsRepo.options.count {
+            let option = repo.customTwitters
             let isSelected = indexPath.row == selectedOption
             let cell = tableView.dequeueReusableCell(withIdentifier: "customSettingCell", for: indexPath) as! TwitterOptionCell
             
             cell.render(isSelected: isSelected, isCustom: true,
-                        twitterOne: (option.0, imageMap[option.0]),
-                        twitterTwo: (option.1, imageMap[option.1]))
+                        twitterOne: (option[0], maybeGetImage(user: option[0])),
+                        twitterTwo: (option[1], maybeGetImage(user: option[1])))
             return cell
         }
         else{
@@ -124,8 +139,8 @@ class SettingsVC: UITableViewController, URLSessionDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier: "settingCell", for: indexPath) as! TwitterOptionCell
             
             cell.render(isSelected: isSelected, isCustom: false,
-                        twitterOne: (option.0, imageMap[option.0]),
-                        twitterTwo: (option.1, imageMap[option.1]))
+                        twitterOne: (option.0, maybeGetImage(user: option.0)),
+                        twitterTwo: (option.1, maybeGetImage(user: option.1)))
             return cell
         }
     }
@@ -152,9 +167,10 @@ class SettingsVC: UITableViewController, URLSessionDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            let child = segue.destination as! CustomSettingVC
-        var name1 = SettingsRepo.options[SettingsRepo.options.count-1].0
-        var name2 = SettingsRepo.options[SettingsRepo.options.count-1].1
+        let child = segue.destination as! CustomSettingVC
+        
+        var name1 = repo.customTwitters[0]
+        var name2 = repo.customTwitters[1]
         
         //Wipe out defaults
         if name1 == "@???"{
