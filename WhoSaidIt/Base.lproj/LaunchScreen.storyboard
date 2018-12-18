@@ -33,17 +33,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="START" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5jX-dH-RTN">
-                                <rect key="frame" x="126" y="306.5" width="123.5" height="54"/>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OGF-B7-a4c">
+                                <rect key="frame" x="100" y="458" width="175" height="60"/>
+                                <color key="backgroundColor" red="0.92260866116751272" green="0.92260866116751272" blue="0.92260866116751272" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="edu-HG-lOG"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WHO SAID IT?" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0n4-JZ-tGd">
+                                <rect key="frame" x="55.5" y="55" width="264" height="54"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="45"/>
                                 <color key="textColor" red="0.1137254902" green="0.63137254899999995" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2bN-5U-iPX">
+                                <rect key="frame" x="60" y="129" width="255" height="100"/>
+                                <color key="backgroundColor" red="0.92260866119999996" green="0.92260866119999996" blue="0.92260866119999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="0lW-sk-tRV"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="5jX-dH-RTN" firstAttribute="centerY" secondItem="KiL-bL-s5q" secondAttribute="centerY" id="Kk9-IJ-fXo"/>
-                            <constraint firstItem="5jX-dH-RTN" firstAttribute="centerX" secondItem="KiL-bL-s5q" secondAttribute="centerX" id="nC7-wU-Gwr"/>
+                            <constraint firstItem="cNW-oI-Xsa" firstAttribute="trailing" secondItem="2bN-5U-iPX" secondAttribute="trailing" constant="60" id="3MJ-ug-5vx"/>
+                            <constraint firstItem="cNW-oI-Xsa" firstAttribute="trailing" secondItem="OGF-B7-a4c" secondAttribute="trailing" constant="100" id="INQ-iG-ch8"/>
+                            <constraint firstItem="2bN-5U-iPX" firstAttribute="leading" secondItem="cNW-oI-Xsa" secondAttribute="leading" constant="60" id="MfZ-J5-PkM"/>
+                            <constraint firstItem="OGF-B7-a4c" firstAttribute="leading" secondItem="cNW-oI-Xsa" secondAttribute="leading" constant="100" id="NDN-gt-uit"/>
+                            <constraint firstItem="2bN-5U-iPX" firstAttribute="top" secondItem="0n4-JZ-tGd" secondAttribute="bottom" constant="20" id="efW-uP-7Ln"/>
+                            <constraint firstItem="0n4-JZ-tGd" firstAttribute="centerX" secondItem="KiL-bL-s5q" secondAttribute="centerX" id="gb0-YU-pJd"/>
+                            <constraint firstItem="cNW-oI-Xsa" firstAttribute="bottom" secondItem="OGF-B7-a4c" secondAttribute="bottom" constant="100" id="ngL-mx-e5T"/>
+                            <constraint firstItem="0n4-JZ-tGd" firstAttribute="top" secondItem="cNW-oI-Xsa" secondAttribute="top" constant="35" id="zTE-um-m0P"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cNW-oI-Xsa"/>
                     </view>
@@ -51,7 +73,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PPw-G9-Ago" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-573" y="-72"/>
+            <point key="canvasLocation" x="-573.60000000000002" y="-72.413793103448285"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="xgb-gj-FQs">
