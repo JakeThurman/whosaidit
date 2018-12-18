@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OVf-ko-BIM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OVf-ko-BIM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -530,11 +530,11 @@
                                     <outlet property="vsLabel" destination="cC9-5G-Hj9" id="m72-Hg-j3r"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customSettingCell" rowHeight="110" id="th4-Ts-fin" customClass="TwitterOptionCell" customModule="WhoSaidIt" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="142.5" width="375" height="110"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customSettingCell" rowHeight="87" id="th4-Ts-fin" customClass="TwitterOptionCell" customModule="WhoSaidIt" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="142.5" width="375" height="87"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="th4-Ts-fin" id="dfA-mE-y2J">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="109.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="86.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bSo-Q2-dsf">
@@ -551,20 +551,28 @@
                                                 <constraint firstAttribute="width" constant="65" id="tk5-f6-9wn"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@cnn VS @theonion" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVb-XL-Yj7">
-                                            <rect key="frame" x="118" y="34.5" width="139.5" height="18"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@cnn VS @theonion" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVb-XL-Yj7">
+                                            <rect key="frame" x="118" y="26.5" width="139.5" height="18"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USER CHOICE:" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ptk-Y1-oxe">
+                                            <rect key="frame" x="145.5" y="11" width="84.5" height="15.5"/>
+                                            <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
+                                            <nil key="highlightedColor"/>
+                                            <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="DpQ-jC-Kos" firstAttribute="trailing" secondItem="dfA-mE-y2J" secondAttribute="trailingMargin" id="2rz-vZ-wVd"/>
+                                        <constraint firstItem="fVb-XL-Yj7" firstAttribute="top" secondItem="Ptk-Y1-oxe" secondAttribute="bottom" id="DRr-IL-nbn"/>
                                         <constraint firstItem="fVb-XL-Yj7" firstAttribute="centerX" secondItem="dfA-mE-y2J" secondAttribute="centerX" id="EYJ-DL-HQz"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="DpQ-jC-Kos" secondAttribute="bottom" id="JQw-Nx-AmK"/>
                                         <constraint firstItem="DpQ-jC-Kos" firstAttribute="top" secondItem="dfA-mE-y2J" secondAttribute="topMargin" id="Pd8-Xr-uYA"/>
                                         <constraint firstItem="bSo-Q2-dsf" firstAttribute="top" secondItem="dfA-mE-y2J" secondAttribute="topMargin" id="SHw-hG-kUn"/>
-                                        <constraint firstItem="fVb-XL-Yj7" firstAttribute="centerY" secondItem="dfA-mE-y2J" secondAttribute="centerY" id="fnm-kC-k99"/>
+                                        <constraint firstItem="Ptk-Y1-oxe" firstAttribute="centerX" secondItem="dfA-mE-y2J" secondAttribute="centerX" id="czj-e3-UhY"/>
+                                        <constraint firstItem="Ptk-Y1-oxe" firstAttribute="top" secondItem="dfA-mE-y2J" secondAttribute="topMargin" id="eYa-A0-LiY"/>
                                         <constraint firstItem="bSo-Q2-dsf" firstAttribute="leading" secondItem="dfA-mE-y2J" secondAttribute="leadingMargin" id="lP3-7z-tOf"/>
                                         <constraint firstItem="bSo-Q2-dsf" firstAttribute="bottom" secondItem="dfA-mE-y2J" secondAttribute="bottomMargin" id="n8u-ZV-Cdj"/>
                                     </constraints>

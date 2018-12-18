@@ -19,12 +19,11 @@ class TwitterOptionCell: UITableViewCell {
         vsLabel.textColor = isSelected ? UIColor.white : UIColor.black
         
         if isCustom {
-            vsLabel.text = "CUSTOM:\n\(twitterOne.0)\nVS\n\(twitterTwo.0)"
             accessoryType = .disclosureIndicator
         }
-        else{
-            vsLabel.text = "\(twitterOne.0)\nVS\n\(twitterTwo.0)"
-        }
+        
+        vsLabel.text = "\(twitterOne.0)\nVS\n\(twitterTwo.0)"
+        
                 
         twitter1Image.image = twitterOne.1
         twitter2Image.image = twitterTwo.1
