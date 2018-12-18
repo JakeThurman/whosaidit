@@ -13,13 +13,14 @@ enum MyError: Error {
 }
 
 class SettingsRepo: NSObject {
-    static let options = [
+    static var options = [
         ("@CNN", "@TheOnion"),
         ("@realDonaldTrump", "@kanyewest"),
         ("@jake_thurman", "@IrkedIndeed"),
         ("@yeevahon", "@ssbmPolish"),
         ("@WHAB_eSports", "@CH_eSports"),
-        ("@TheBabylonBee", "@TheOnion")
+        ("@TheBabylonBee", "@TheOnion"),
+        ("@???","@???")
     ]
     
     static let instance = SettingsRepo()
@@ -127,5 +128,9 @@ class SettingsRepo: NSObject {
         }
         
         throw MyError.badSettingNameError("'\(settingName)' is not a valid setting")
+    }
+    
+    func changeCustomTwitters(name1: String, name2: String){
+        SettingsRepo.options[SettingsRepo.options.count-1] = ("@\(name1)","@\(name2)")
     }
 }

@@ -33,7 +33,12 @@ class LeaderboardVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let pair = SettingsRepo.options[section]
-        return "\(pair.0) VS \(pair.1)"
+        if section == SettingsRepo.options.count-1 {
+            return "CUSTOM PAIRS: Currently \(pair.0) VS \(pair.1)"
+        }
+        else{
+            return "\(pair.0) VS \(pair.1)"
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

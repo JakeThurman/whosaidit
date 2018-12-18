@@ -35,6 +35,10 @@ class EndGameVC: UIViewController, UITextFieldDelegate {
         nameField.becomeFirstResponder()
     }
     
+    @IBAction func backgroundTap(_ sender: Any?) {
+        self.view.endEditing(true)
+    }
+    
     //Dismiss keyboard when return button is pressed
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         nameField.resignFirstResponder()

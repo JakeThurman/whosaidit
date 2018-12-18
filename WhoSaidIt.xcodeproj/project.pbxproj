@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8429343421C949F000F18DC6 /* CustomSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429343321C949EF00F18DC6 /* CustomSettingVC.swift */; };
 		8460D8D2219BE05A005B8622 /* EndGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8460D8D1219BE05A005B8622 /* EndGameVC.swift */; };
 		84E78C52219B533D00D7BF31 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		A5783281219BA43E0096CCE8 /* LeaderboardRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5783280219BA43E0096CCE8 /* LeaderboardRepo.swift */; };
@@ -52,6 +53,7 @@
 		3972432C259CFE113FAF3D6A /* Pods-WhoSaidItUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoSaidItUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhoSaidItUITests/Pods-WhoSaidItUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6029F9BE04C2AB5939F5A99F /* Pods-WhoSaidItTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoSaidItTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhoSaidItTests/Pods-WhoSaidItTests.debug.xcconfig"; sourceTree = "<group>"; };
 		67B88E5C5794156E99A0E889 /* Pods-WhoSaidItTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoSaidItTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhoSaidItTests/Pods-WhoSaidItTests.release.xcconfig"; sourceTree = "<group>"; };
+		8429343321C949EF00F18DC6 /* CustomSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSettingVC.swift; sourceTree = "<group>"; };
 		8460D8D1219BE05A005B8622 /* EndGameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameVC.swift; sourceTree = "<group>"; };
 		A5783280219BA43E0096CCE8 /* LeaderboardRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardRepo.swift; sourceTree = "<group>"; };
 		A5783282219BABBA0096CCE8 /* Ranking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				8460D8D1219BE05A005B8622 /* EndGameVC.swift */,
 				A91BE9F42198FB0C00E4BA67 /* LeaderboardVC.swift */,
 				A91BE9F02198FA8900E4BA67 /* SettingsVC.swift */,
+				8429343321C949EF00F18DC6 /* CustomSettingVC.swift */,
 				A9DAF25C21C6DB900010E0F4 /* TwitterOptionCell.swift */,
 				A91BE9C72198F70900E4BA67 /* Assets.xcassets */,
 				A91BEA04219A06F400E4BA67 /* SettingsRepo.swift */,
@@ -454,6 +457,7 @@
 			files = (
 				A91BE9F52198FB0C00E4BA67 /* LeaderboardVC.swift in Sources */,
 				A91BE9F92198FE1800E4BA67 /* StartGameVC.swift in Sources */,
+				8429343421C949F000F18DC6 /* CustomSettingVC.swift in Sources */,
 				A5783281219BA43E0096CCE8 /* LeaderboardRepo.swift in Sources */,
 				8460D8D2219BE05A005B8622 /* EndGameVC.swift in Sources */,
 				A5783285219C7E8B0096CCE8 /* Setting.swift in Sources */,

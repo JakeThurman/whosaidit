@@ -16,6 +16,17 @@ class SettingsVC: UITableViewController, URLSessionDelegate, URLSessionDownloadD
     var downloadTaskIdToMetadata = [Int:(String, Int)]()
     var urlSession: URLSession! = nil
     
+    @IBAction func returnToSettings(segue: UIStoryboardSegue){
+        if let sourceVC = segue.source as? CustomSettingVC  {
+            
+            repo.changeCustomTwitters(name1:             sourceVC.twitterOneField.text!
+                , name2:             sourceVC.twitterTwoField.text!)
+
+            //repo.changeCustomTwitters(name1: sourceVC.twitterOne, name2: sourceVC.twitterTwo)
+        }
+        tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -96,15 +107,26 @@ class SettingsVC: UITableViewController, URLSessionDelegate, URLSessionDownloadD
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let option = SettingsRepo.options[indexPath.row]
-        let isSelected = indexPath.row == selectedOption
-        let cell = tableView.dequeueReusableCell(withIdentifier: "settingCell", for: indexPath) as! TwitterOptionCell
-        
-        cell.render(isSelected: isSelected,
-                    twitterOne: (option.0, imageMap[option.0]),
-                    twitterTwo: (option.1, imageMap[option.1]))
-
-        return cell
+        if indexPath.row == SettingsRepo.options.count - 1 {
+            let option = SettingsRepo.options[indexPath.row]
+            let isSelected = indexPath.row == selectedOption
+            let cell = tableView.dequeueReusableCell(withIdentifier: "customSettingCell", for: indexPath) as! TwitterOptionCell
+            
+            cell.render(isSelected: isSelected, isCustom: true,
+                        twitterOne: (option.0, imageMap[option.0]),
+                        twitterTwo: (option.1, imageMap[option.1]))
+            return cell
+        }
+        else{
+            let option = SettingsRepo.options[indexPath.row]
+            let isSelected = indexPath.row == selectedOption
+            let cell = tableView.dequeueReusableCell(withIdentifier: "settingCell", for: indexPath) as! TwitterOptionCell
+            
+            cell.render(isSelected: isSelected, isCustom: false,
+                        twitterOne: (option.0, imageMap[option.0]),
+                        twitterTwo: (option.1, imageMap[option.1]))
+            return cell
+        }
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -126,5 +148,23 @@ class SettingsVC: UITableViewController, URLSessionDelegate, URLSessionDownloadD
         
         // Reload both rows
         tableView.reloadRows(at: [indexPath, IndexPath(row: oldSelectedOption, section: 0)], with: .none)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            let child = segue.destination as! CustomSettingVC
+        var name1 = SettingsRepo.options[SettingsRepo.options.count-1].0
+        var name2 = SettingsRepo.options[SettingsRepo.options.count-1].1
+        
+        //Wipe out defaults
+        if name1 == "@???"{
+            name1 = "@"
+        }
+        if name2 == "@???"{
+            name2 = "@"
+        }
+        
+        //Drop the @ symbol
+        child.twitterOne = String(name1.dropFirst())
+        child.twitterTwo = String(name2.dropFirst())
     }
 }
