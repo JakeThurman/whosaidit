@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OVf-ko-BIM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OVf-ko-BIM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -42,7 +42,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3IS-js-I4h">
-                                <rect key="frame" x="116" y="424.5" width="143" height="72"/>
+                                <rect key="frame" x="116" y="446" width="143" height="72"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="50"/>
                                 <state key="normal" title="START">
                                     <color key="titleColor" red="0.1137254902" green="0.63137254899999995" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -56,8 +56,8 @@
                         <constraints>
                             <constraint firstItem="uB7-Lk-Glv" firstAttribute="top" secondItem="HVV-77-c2s" secondAttribute="top" constant="35" id="4H4-45-uQ2"/>
                             <constraint firstItem="Jqt-Om-Jqf" firstAttribute="top" secondItem="uB7-Lk-Glv" secondAttribute="bottom" constant="20" id="Biz-i7-ZvX"/>
-                            <constraint firstItem="3IS-js-I4h" firstAttribute="top" secondItem="hTz-u1-dGP" secondAttribute="bottom" constant="175" id="CRo-AD-CcD"/>
                             <constraint firstItem="Jqt-Om-Jqf" firstAttribute="centerX" secondItem="d9f-JA-qjV" secondAttribute="centerX" id="NsB-QI-mur"/>
+                            <constraint firstItem="HVV-77-c2s" firstAttribute="bottom" secondItem="3IS-js-I4h" secondAttribute="bottom" constant="100" id="Ojy-Ql-uP1"/>
                             <constraint firstItem="hTz-u1-dGP" firstAttribute="centerX" secondItem="d9f-JA-qjV" secondAttribute="centerX" id="SWt-5b-ae0"/>
                             <constraint firstItem="78J-Hv-tFq" firstAttribute="centerX" secondItem="d9f-JA-qjV" secondAttribute="centerX" id="TCt-lq-1hA"/>
                             <constraint firstItem="3IS-js-I4h" firstAttribute="centerX" secondItem="d9f-JA-qjV" secondAttribute="centerX" id="iDL-1l-xdR"/>
@@ -417,7 +417,7 @@
         <scene sceneID="FE2-US-U1A">
             <objects>
                 <tableViewController id="gE6-og-BEn" customClass="LeaderboardVC" customModule="WhoSaidIt" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="3hE-uf-AgB">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="3hE-uf-AgB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>

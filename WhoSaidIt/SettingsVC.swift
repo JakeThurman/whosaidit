@@ -9,7 +9,7 @@
 import UIKit
 import TwitterKit
 
-class SettingsVC: UITableViewController, URLSessionDelegate, URLSessionDownloadDelegate {
+class SettingsVC: UITableViewController, URLSessionDelegate {
     let repo = SettingsRepo.instance
     var selectedOption: Int = 0
     var imageMap = [String:UIImage]()
@@ -32,10 +32,10 @@ class SettingsVC: UITableViewController, URLSessionDelegate, URLSessionDownloadD
         
         let config = URLSessionConfiguration.default
         urlSession = URLSession(configuration: config, delegate: self, delegateQueue: nil)
-        
+
         updateSelectedOption()
         
-        //loadAllImages()
+        loadAllImages()
         
         repo.addObserver(self, forKeyPath: "data", options: .new, context: nil)
     }
@@ -44,20 +44,16 @@ class SettingsVC: UITableViewController, URLSessionDelegate, URLSessionDownloadD
         repo.removeObserver(self, forKeyPath: "data")
     }
     
-    func loadAllImages() {
-        let api = TweetLoader()
-        
+    func loadAllImages() {        
         let allNames = SettingsRepo.options.enumerated().flatMap {[
             (index: $0.offset, username: $0.element.0),
             (index: $0.offset, username: $0.element.1)
         ]}
         
         for pair in allNames {
-            api.getProfilePhotoURL(username: pair.username,
-                onError: { err in print(err) },
-                onSuccess: { urlStr in
-                    self.sendRequestFor(urlStr: urlStr, rowToReload: pair.index, username: pair.username)
-                })
+            let username = pair.username.replacingOccurrences(of: "@", with: "")
+            let urlStr = "https://avatars.io/twitter/\(username)/medium"
+            self.sendRequestFor(urlStr: urlStr, rowToReload: pair.index, username: pair.username)
         }
     }
     
@@ -66,28 +62,33 @@ class SettingsVC: UITableViewController, URLSessionDelegate, URLSessionDownloadD
             print("Attempt to load invalid URL: \(urlStr)")
             return
         }
-    
-        let downloadTask = self.urlSession.downloadTask(with: url)
-    
-        let metadata = (username, rowToReload)
-        downloadTaskIdToMetadata[downloadTask.taskIdentifier] = metadata
-    }
-    
-    // Read in the image. It has been loaded in the background.
-    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
-        let (username, rowToReload) = downloadTaskIdToMetadata[downloadTask.taskIdentifier]!
         
-        do {
-            let data = try Data(contentsOf: location)
-            self.imageMap[username] = UIImage(data: data)
-        }
-        catch {
-            print("Failed to load picture for \(username)")
+        print("Loading image for \(username)")
+    
+        let downloadTask = urlSession.downloadTask(with: url) {
+            (location, _request, err) in
+            
+            guard let location = location else {
+                print(err as Any)
+                return
+            }
+            
+            print("Downloaded url for \(username)")
+            
+            do {
+                let data = try Data(contentsOf: location)
+                self.imageMap[username] = UIImage(data: data)
+            }
+            catch {
+                print("Failed to load picture for \(username)")
+            }
+            
+            OperationQueue.main.addOperation {
+                self.tableView.reloadRows(at: [IndexPath(row: rowToReload, section: 0)], with: .none)
+            }
         }
         
-        OperationQueue.main.addOperation {
-            self.tableView.reloadRows(at: [IndexPath(row: rowToReload, section: 0)], with: .none)
-        }
+        downloadTask.resume()
     }
     
     func updateSelectedOption() {
