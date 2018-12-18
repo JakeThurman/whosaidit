@@ -18,7 +18,8 @@ class SettingsRepo: NSObject {
         ("@realDonaldTrump", "@kanyewest"),
         ("@jake_thurman", "@IrkedIndeed"),
         ("@yeevahon", "@ssbmPolish"),
-        ("@WHAB_eSports", "@CH_eSports")
+        ("@WHAB_eSports", "@CH_eSports"),
+        ("@TheBabylonBee", "@TheOnion")
     ]
     
     static let instance = SettingsRepo()

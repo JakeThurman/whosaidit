@@ -24,7 +24,7 @@ class SettingsVC: UITableViewController, URLSessionDelegate, URLSessionDownloadD
         
         updateSelectedOption()
         
-        loadAllImages()
+        //loadAllImages()
         
         repo.addObserver(self, forKeyPath: "data", options: .new, context: nil)
     }
